@@ -1,0 +1,43 @@
+{
+  "name": "aipokerlab",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.131.0",
+    "@prisma/client": "^6.19.3",
+    "@vercel/analytics": "^2.0.1",
+    "next": "16.3.8",
+    "openai": "^7.28.0",
+    "posthog-js": "^1.435.9",
+    "prisma": "^6.19.3",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "resend": "^6.32.0",
+    "stripe": "^23.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@testing-library/dom": "^10.4.2",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.8",
+    "jsdom": "^30.1.2",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "vite": "^8.3.2",
+    "vitest": "^5.0.3",
+    "zod": "^4.6.5"
+  }
+}

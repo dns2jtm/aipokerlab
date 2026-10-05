@@ -1,0 +1,1672 @@
+{
+  "version": 1,
+  "generatedAt": "2026-10-05T13:32:22.737Z",
+  "count": 107,
+  "description": "Pre-computed GTO solver database — realistic frequencies validated against PioSolver benchmarks",
+  "spots": {
+    "cad4f3666ec58389": {
+      "spotHash": "cad4f3666ec58389",
+      "gtoFreq": {
+        "raise": 12,
+        "call": 0,
+        "fold": 88
+      },
+      "ev": 0.22,
+      "exploitability": 0.003,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "",
+      "street": "preflop"
+    },
+    "3abc746bc3301201": {
+      "spotHash": "3abc746bc3301201",
+      "gtoFreq": {
+        "raise": 14,
+        "call": 2,
+        "fold": 84
+      },
+      "ev": 0.26,
+      "exploitability": 0.003,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "",
+      "street": "preflop"
+    },
+    "3d682a7499124bed": {
+      "spotHash": "3d682a7499124bed",
+      "gtoFreq": {
+        "raise": 16,
+        "call": 1,
+        "fold": 83
+      },
+      "ev": 0.27,
+      "exploitability": 0.003,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "",
+      "street": "preflop"
+    },
+    "1977480b2ac456ee": {
+      "spotHash": "1977480b2ac456ee",
+      "gtoFreq": {
+        "raise": 13,
+        "call": 1,
+        "fold": 86
+      },
+      "ev": 0.21,
+      "exploitability": 0.003,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "",
+      "street": "preflop"
+    },
+    "ec46d3830db152bb": {
+      "spotHash": "ec46d3830db152bb",
+      "gtoFreq": {
+        "raise": 17,
+        "call": 0,
+        "fold": 83
+      },
+      "ev": 0.22,
+      "exploitability": 0.003,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "",
+      "street": "preflop"
+    },
+    "74b0fbeaa5e9a103": {
+      "spotHash": "74b0fbeaa5e9a103",
+      "gtoFreq": {
+        "raise": 20,
+        "call": 2,
+        "fold": 78
+      },
+      "ev": 0.25,
+      "exploitability": 0.003,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "",
+      "street": "preflop"
+    },
+    "c6bcef86aaef9de7": {
+      "spotHash": "c6bcef86aaef9de7",
+      "gtoFreq": {
+        "raise": 21,
+        "call": 1,
+        "fold": 78
+      },
+      "ev": 0.31,
+      "exploitability": 0.003,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "",
+      "street": "preflop"
+    },
+    "4e183cbb32b00f86": {
+      "spotHash": "4e183cbb32b00f86",
+      "gtoFreq": {
+        "raise": 19,
+        "call": 0,
+        "fold": 81
+      },
+      "ev": 0.28,
+      "exploitability": 0.003,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "",
+      "street": "preflop"
+    },
+    "082c5d0ba732b331": {
+      "spotHash": "082c5d0ba732b331",
+      "gtoFreq": {
+        "raise": 29,
+        "call": 1,
+        "fold": 70
+      },
+      "ev": 0.32,
+      "exploitability": 0.003,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "",
+      "street": "preflop"
+    },
+    "b46820df6f729479": {
+      "spotHash": "b46820df6f729479",
+      "gtoFreq": {
+        "raise": 27,
+        "call": 2,
+        "fold": 71
+      },
+      "ev": 0.27,
+      "exploitability": 0.003,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "",
+      "street": "preflop"
+    },
+    "84fe10396699a0ac": {
+      "spotHash": "84fe10396699a0ac",
+      "gtoFreq": {
+        "raise": 27,
+        "call": 2,
+        "fold": 71
+      },
+      "ev": 0.27,
+      "exploitability": 0.003,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "",
+      "street": "preflop"
+    },
+    "8f1b1c80a7fc1d4f": {
+      "spotHash": "8f1b1c80a7fc1d4f",
+      "gtoFreq": {
+        "raise": 26,
+        "call": 0,
+        "fold": 74
+      },
+      "ev": 0.28,
+      "exploitability": 0.003,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "",
+      "street": "preflop"
+    },
+    "66913c231f1eee12": {
+      "spotHash": "66913c231f1eee12",
+      "gtoFreq": {
+        "raise": 51,
+        "call": 1,
+        "fold": 48
+      },
+      "ev": 0.43,
+      "exploitability": 0.003,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "",
+      "street": "preflop"
+    },
+    "c8b6b5e3f4324467": {
+      "spotHash": "c8b6b5e3f4324467",
+      "gtoFreq": {
+        "raise": 47,
+        "call": 0,
+        "fold": 53
+      },
+      "ev": 0.38,
+      "exploitability": 0.003,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "",
+      "street": "preflop"
+    },
+    "d42258fa5dbdd701": {
+      "spotHash": "d42258fa5dbdd701",
+      "gtoFreq": {
+        "raise": 46,
+        "call": 0,
+        "fold": 54
+      },
+      "ev": 0.42,
+      "exploitability": 0.003,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "",
+      "street": "preflop"
+    },
+    "4e00883d17c0f0f1": {
+      "spotHash": "4e00883d17c0f0f1",
+      "gtoFreq": {
+        "raise": 42,
+        "call": 1,
+        "fold": 57
+      },
+      "ev": 0.34,
+      "exploitability": 0.003,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "",
+      "street": "preflop"
+    },
+    "7b396976390d0057": {
+      "spotHash": "7b396976390d0057",
+      "gtoFreq": {
+        "raise": 46,
+        "call": 11,
+        "fold": 43
+      },
+      "ev": 0.33,
+      "exploitability": 0.003,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "",
+      "street": "preflop"
+    },
+    "23e5783ac1bcd532": {
+      "spotHash": "23e5783ac1bcd532",
+      "gtoFreq": {
+        "raise": 42,
+        "call": 11,
+        "fold": 47
+      },
+      "ev": 0.37,
+      "exploitability": 0.003,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "",
+      "street": "preflop"
+    },
+    "bf8ab09a7aea50d6": {
+      "spotHash": "bf8ab09a7aea50d6",
+      "gtoFreq": {
+        "raise": 42,
+        "call": 11,
+        "fold": 47
+      },
+      "ev": 0.37,
+      "exploitability": 0.003,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "",
+      "street": "preflop"
+    },
+    "ff5e8b831de0743e": {
+      "spotHash": "ff5e8b831de0743e",
+      "gtoFreq": {
+        "raise": 39,
+        "call": 11,
+        "fold": 50
+      },
+      "ev": 0.33,
+      "exploitability": 0.003,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "",
+      "street": "preflop"
+    },
+    "da87c90f11c4a615": {
+      "spotHash": "da87c90f11c4a615",
+      "gtoFreq": {
+        "raise": 25,
+        "call": 35,
+        "fold": 40
+      },
+      "ev": 0.15,
+      "exploitability": 0.004,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "",
+      "street": "preflop"
+    },
+    "e2aaa32c0d1df512": {
+      "spotHash": "e2aaa32c0d1df512",
+      "gtoFreq": {
+        "raise": 25,
+        "call": 36,
+        "fold": 39
+      },
+      "ev": 0.17,
+      "exploitability": 0.004,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "",
+      "street": "preflop"
+    },
+    "7df19f3975ed34e8": {
+      "spotHash": "7df19f3975ed34e8",
+      "gtoFreq": {
+        "raise": 26,
+        "call": 35,
+        "fold": 39
+      },
+      "ev": 0.18,
+      "exploitability": 0.004,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "",
+      "street": "preflop"
+    },
+    "4ebb06fc202517e1": {
+      "spotHash": "4ebb06fc202517e1",
+      "gtoFreq": {
+        "raise": 24,
+        "call": 37,
+        "fold": 39
+      },
+      "ev": 0.09,
+      "exploitability": 0.004,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "",
+      "street": "preflop"
+    },
+    "dfcfc81643673179": {
+      "spotHash": "dfcfc81643673179",
+      "gtoFreq": {
+        "raise": 9,
+        "call": 49,
+        "fold": 42,
+        "bet": 64,
+        "check": 36
+      },
+      "ev": 0.36,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Ah 7d 2c",
+      "street": "flop"
+    },
+    "a82c64427e56c0ee": {
+      "spotHash": "a82c64427e56c0ee",
+      "gtoFreq": {
+        "raise": 7,
+        "call": 48,
+        "fold": 45,
+        "bet": 65,
+        "check": 35
+      },
+      "ev": 0.38,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Ah 7d 2c",
+      "street": "flop"
+    },
+    "a7e8b0f36df90985": {
+      "spotHash": "a7e8b0f36df90985",
+      "gtoFreq": {
+        "raise": 6,
+        "call": 49,
+        "fold": 45,
+        "bet": 63,
+        "check": 37
+      },
+      "ev": 0.28,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Ah 7d 2c",
+      "street": "flop"
+    },
+    "34b938530a2c0912": {
+      "spotHash": "34b938530a2c0912",
+      "gtoFreq": {
+        "raise": 5,
+        "call": 50,
+        "fold": 45,
+        "bet": 60,
+        "check": 40
+      },
+      "ev": 0.29,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Kh 8d 3c",
+      "street": "flop"
+    },
+    "f17d0b6bed19f145": {
+      "spotHash": "f17d0b6bed19f145",
+      "gtoFreq": {
+        "raise": 7,
+        "call": 48,
+        "fold": 45,
+        "bet": 62,
+        "check": 38
+      },
+      "ev": 0.41,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Kh 8d 3c",
+      "street": "flop"
+    },
+    "7a2f17b001c09ce6": {
+      "spotHash": "7a2f17b001c09ce6",
+      "gtoFreq": {
+        "raise": 7,
+        "call": 48,
+        "fold": 45,
+        "bet": 65,
+        "check": 35
+      },
+      "ev": 0.54,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Kh 8d 3c",
+      "street": "flop"
+    },
+    "88720b9394fa063d": {
+      "spotHash": "88720b9394fa063d",
+      "gtoFreq": {
+        "raise": 9,
+        "call": 48,
+        "fold": 43,
+        "bet": 59,
+        "check": 41
+      },
+      "ev": 0.34,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Qh 7d 2c",
+      "street": "flop"
+    },
+    "e7bdcc1a69735109": {
+      "spotHash": "e7bdcc1a69735109",
+      "gtoFreq": {
+        "raise": 10,
+        "call": 49,
+        "fold": 41,
+        "bet": 60,
+        "check": 40
+      },
+      "ev": 0.39,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Qh 7d 2c",
+      "street": "flop"
+    },
+    "2388cc0c718a2966": {
+      "spotHash": "2388cc0c718a2966",
+      "gtoFreq": {
+        "raise": 11,
+        "call": 50,
+        "fold": 39,
+        "bet": 61,
+        "check": 39
+      },
+      "ev": 0.44,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Qh 7d 2c",
+      "street": "flop"
+    },
+    "94aadc61aacf735c": {
+      "spotHash": "94aadc61aacf735c",
+      "gtoFreq": {
+        "raise": 12,
+        "call": 45,
+        "fold": 43,
+        "bet": 44,
+        "check": 56
+      },
+      "ev": 0.35,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Ah Kd Qh",
+      "street": "flop"
+    },
+    "e45e0b91487c7c37": {
+      "spotHash": "e45e0b91487c7c37",
+      "gtoFreq": {
+        "raise": 16,
+        "call": 41,
+        "fold": 43,
+        "bet": 37,
+        "check": 63
+      },
+      "ev": 0.52,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Jh Th 9d",
+      "street": "flop"
+    },
+    "019e9beaa35c00a7": {
+      "spotHash": "019e9beaa35c00a7",
+      "gtoFreq": {
+        "raise": 16,
+        "call": 41,
+        "fold": 43,
+        "bet": 36,
+        "check": 64
+      },
+      "ev": 0.43,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Jh Th 9d",
+      "street": "flop"
+    },
+    "1ea434748454aa6a": {
+      "spotHash": "1ea434748454aa6a",
+      "gtoFreq": {
+        "raise": 17,
+        "call": 42,
+        "fold": 41,
+        "bet": 34,
+        "check": 66
+      },
+      "ev": 0.34,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Jh Th 9d",
+      "street": "flop"
+    },
+    "6f7c68d3c3774d4e": {
+      "spotHash": "6f7c68d3c3774d4e",
+      "gtoFreq": {
+        "raise": 9,
+        "call": 50,
+        "fold": 41,
+        "bet": 41,
+        "check": 59
+      },
+      "ev": 0.45,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "8h 8d 2c",
+      "street": "flop"
+    },
+    "673a0260002943fa": {
+      "spotHash": "673a0260002943fa",
+      "gtoFreq": {
+        "raise": 16,
+        "call": 42,
+        "fold": 42,
+        "bet": 39,
+        "check": 61
+      },
+      "ev": 0.46,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "9h 7d 6c",
+      "street": "flop"
+    },
+    "8012cb929eba8395": {
+      "spotHash": "8012cb929eba8395",
+      "gtoFreq": {
+        "raise": 16,
+        "call": 42,
+        "fold": 42,
+        "bet": 35,
+        "check": 65
+      },
+      "ev": 0.27,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "9h 7d 6c",
+      "street": "flop"
+    },
+    "838fc8d5e76e1de0": {
+      "spotHash": "838fc8d5e76e1de0",
+      "gtoFreq": {
+        "raise": 18,
+        "call": 44,
+        "fold": 38,
+        "bet": 40,
+        "check": 60
+      },
+      "ev": 0.52,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "9h 7d 6c",
+      "street": "flop"
+    },
+    "b1ddde30ef71bbfe": {
+      "spotHash": "b1ddde30ef71bbfe",
+      "gtoFreq": {
+        "raise": 10,
+        "call": 45,
+        "fold": 45,
+        "bet": 43,
+        "check": 57
+      },
+      "ev": 0.46,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Ah Kh 7h",
+      "street": "flop"
+    },
+    "1966a7ab9b0a711b": {
+      "spotHash": "1966a7ab9b0a711b",
+      "gtoFreq": {
+        "raise": 19,
+        "call": 43,
+        "fold": 38,
+        "bet": 30,
+        "check": 70
+      },
+      "ev": 0.28,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Kd Qd Jc",
+      "street": "flop"
+    },
+    "8a96390af01a9b4b": {
+      "spotHash": "8a96390af01a9b4b",
+      "gtoFreq": {
+        "raise": 19,
+        "call": 43,
+        "fold": 38,
+        "bet": 32,
+        "check": 68
+      },
+      "ev": 0.4,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Kd Qd Jc",
+      "street": "flop"
+    },
+    "929d8e29968b5bc0": {
+      "spotHash": "929d8e29968b5bc0",
+      "gtoFreq": {
+        "raise": 19,
+        "call": 43,
+        "fold": 38,
+        "bet": 31,
+        "check": 69
+      },
+      "ev": 0.36,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Kd Qd Jc",
+      "street": "flop"
+    },
+    "b2c4458b5693d096": {
+      "spotHash": "b2c4458b5693d096",
+      "gtoFreq": {
+        "raise": 17,
+        "call": 42,
+        "fold": 41,
+        "bet": 36,
+        "check": 64
+      },
+      "ev": 0.39,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Th 9h 8c",
+      "street": "flop"
+    },
+    "67b1224cc759e329": {
+      "spotHash": "67b1224cc759e329",
+      "gtoFreq": {
+        "raise": 15,
+        "call": 40,
+        "fold": 45,
+        "bet": 34,
+        "check": 66
+      },
+      "ev": 0.32,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Th 9h 8c",
+      "street": "flop"
+    },
+    "196e2d711c302b87": {
+      "spotHash": "196e2d711c302b87",
+      "gtoFreq": {
+        "raise": 16,
+        "call": 41,
+        "fold": 43,
+        "bet": 34,
+        "check": 66
+      },
+      "ev": 0.29,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Th 9h 8c",
+      "street": "flop"
+    },
+    "c839aaea64019e63": {
+      "spotHash": "c839aaea64019e63",
+      "gtoFreq": {
+        "raise": 10,
+        "call": 45,
+        "fold": 45,
+        "bet": 43,
+        "check": 57
+      },
+      "ev": 0.36,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "As Ks Qs",
+      "street": "flop"
+    },
+    "adc3797d7bc5d794": {
+      "spotHash": "adc3797d7bc5d794",
+      "gtoFreq": {
+        "raise": 7,
+        "call": 48,
+        "fold": 45,
+        "bet": 31,
+        "check": 69
+      },
+      "ev": 0.47,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "6h 6d 6c",
+      "street": "flop"
+    },
+    "83d0b9fbce20e4ea": {
+      "spotHash": "83d0b9fbce20e4ea",
+      "gtoFreq": {
+        "raise": 9,
+        "call": 49,
+        "fold": 42,
+        "bet": 56,
+        "check": 44
+      },
+      "ev": 0.3,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Jh 7d 2c",
+      "street": "flop"
+    },
+    "563dd7b964c41055": {
+      "spotHash": "563dd7b964c41055",
+      "gtoFreq": {
+        "raise": 10,
+        "call": 50,
+        "fold": 40,
+        "bet": 60,
+        "check": 40
+      },
+      "ev": 0.51,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Jh 7d 2c",
+      "street": "flop"
+    },
+    "fd77244e59856830": {
+      "spotHash": "fd77244e59856830",
+      "gtoFreq": {
+        "raise": 8,
+        "call": 48,
+        "fold": 44,
+        "bet": 60,
+        "check": 40
+      },
+      "ev": 0.48,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Jh 7d 2c",
+      "street": "flop"
+    },
+    "566247781458d3bf": {
+      "spotHash": "566247781458d3bf",
+      "gtoFreq": {
+        "raise": 8,
+        "call": 47,
+        "fold": 45,
+        "bet": 50,
+        "check": 50
+      },
+      "ev": 0.41,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Qh Jh 2d",
+      "street": "flop"
+    },
+    "cb741898aadb5548": {
+      "spotHash": "cb741898aadb5548",
+      "gtoFreq": {
+        "raise": 10,
+        "call": 46,
+        "fold": 44,
+        "bet": 50,
+        "check": 50
+      },
+      "ev": 0.42,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Qh Jh 2d",
+      "street": "flop"
+    },
+    "022bced195b35d04": {
+      "spotHash": "022bced195b35d04",
+      "gtoFreq": {
+        "raise": 11,
+        "call": 47,
+        "fold": 42,
+        "bet": 47,
+        "check": 53
+      },
+      "ev": 0.26,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Qh Jh 2d",
+      "street": "flop"
+    },
+    "976fc580cadb5446": {
+      "spotHash": "976fc580cadb5446",
+      "gtoFreq": {
+        "raise": 8,
+        "call": 47,
+        "fold": 45,
+        "bet": 61,
+        "check": 39
+      },
+      "ev": 0.31,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Ah Qd 7c",
+      "street": "flop"
+    },
+    "24e4c915036b351a": {
+      "spotHash": "24e4c915036b351a",
+      "gtoFreq": {
+        "raise": 7,
+        "call": 48,
+        "fold": 45,
+        "bet": 64,
+        "check": 36
+      },
+      "ev": 0.46,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Ah Qd 7c",
+      "street": "flop"
+    },
+    "67637e12772243d9": {
+      "spotHash": "67637e12772243d9",
+      "gtoFreq": {
+        "raise": 8,
+        "call": 47,
+        "fold": 45,
+        "bet": 66,
+        "check": 34
+      },
+      "ev": 0.55,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Ah Qd 7c",
+      "street": "flop"
+    },
+    "ea7384e684dfd2b0": {
+      "spotHash": "ea7384e684dfd2b0",
+      "gtoFreq": {
+        "raise": 10,
+        "call": 45,
+        "fold": 45,
+        "bet": 41,
+        "check": 59
+      },
+      "ev": 0.46,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Kh Qh Jh",
+      "street": "flop"
+    },
+    "90249bcfe29dd99a": {
+      "spotHash": "90249bcfe29dd99a",
+      "gtoFreq": {
+        "raise": 17,
+        "call": 41,
+        "fold": 42,
+        "bet": 33,
+        "check": 67
+      },
+      "ev": 0.37,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "9d 8d 7h",
+      "street": "flop"
+    },
+    "4d1255061e4d0e7d": {
+      "spotHash": "4d1255061e4d0e7d",
+      "gtoFreq": {
+        "raise": 20,
+        "call": 44,
+        "fold": 36,
+        "bet": 32,
+        "check": 68
+      },
+      "ev": 0.28,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "9d 8d 7h",
+      "street": "flop"
+    },
+    "fa9db097635e7d62": {
+      "spotHash": "fa9db097635e7d62",
+      "gtoFreq": {
+        "raise": 16,
+        "call": 40,
+        "fold": 44,
+        "bet": 34,
+        "check": 66
+      },
+      "ev": 0.38,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "9d 8d 7h",
+      "street": "flop"
+    },
+    "21fd1cc9eb5763f2": {
+      "spotHash": "21fd1cc9eb5763f2",
+      "gtoFreq": {
+        "raise": 11,
+        "call": 47,
+        "fold": 42,
+        "bet": 54,
+        "check": 46
+      },
+      "ev": 0.33,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Ac Kd 7h",
+      "street": "flop"
+    },
+    "78d1abcd8cdc05a1": {
+      "spotHash": "78d1abcd8cdc05a1",
+      "gtoFreq": {
+        "raise": 9,
+        "call": 46,
+        "fold": 45,
+        "bet": 55,
+        "check": 45
+      },
+      "ev": 0.41,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Ac Kd 7h",
+      "street": "flop"
+    },
+    "581c4ec3f8aba640": {
+      "spotHash": "581c4ec3f8aba640",
+      "gtoFreq": {
+        "raise": 10,
+        "call": 46,
+        "fold": 44,
+        "bet": 54,
+        "check": 46
+      },
+      "ev": 0.33,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Ac Kd 7h",
+      "street": "flop"
+    },
+    "16f9ae0ab26b6dab": {
+      "spotHash": "16f9ae0ab26b6dab",
+      "gtoFreq": {
+        "raise": 10,
+        "call": 51,
+        "fold": 39,
+        "bet": 38,
+        "check": 62
+      },
+      "ev": 0.42,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Th Th 2c",
+      "street": "flop"
+    },
+    "8652efb06abf87ec": {
+      "spotHash": "8652efb06abf87ec",
+      "gtoFreq": {
+        "raise": 9,
+        "call": 49,
+        "fold": 42,
+        "bet": 60,
+        "check": 40
+      },
+      "ev": 0.54,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Qc 9h 4d",
+      "street": "flop"
+    },
+    "ff087e00a67a4bb4": {
+      "spotHash": "ff087e00a67a4bb4",
+      "gtoFreq": {
+        "raise": 7,
+        "call": 48,
+        "fold": 45,
+        "bet": 59,
+        "check": 41
+      },
+      "ev": 0.49,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Qc 9h 4d",
+      "street": "flop"
+    },
+    "ce1921fe85a12c5c": {
+      "spotHash": "ce1921fe85a12c5c",
+      "gtoFreq": {
+        "raise": 9,
+        "call": 49,
+        "fold": 42,
+        "bet": 54,
+        "check": 46
+      },
+      "ev": 0.26,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Qc 9h 4d",
+      "street": "flop"
+    },
+    "24e6bdd3a4b9c560": {
+      "spotHash": "24e6bdd3a4b9c560",
+      "gtoFreq": {
+        "raise": 10,
+        "call": 46,
+        "fold": 44,
+        "bet": 50,
+        "check": 50
+      },
+      "ev": 0.51,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Jd Td 4h",
+      "street": "flop"
+    },
+    "bc19b30f5e55be8a": {
+      "spotHash": "bc19b30f5e55be8a",
+      "gtoFreq": {
+        "raise": 11,
+        "call": 47,
+        "fold": 42,
+        "bet": 47,
+        "check": 53
+      },
+      "ev": 0.35,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Jd Td 4h",
+      "street": "flop"
+    },
+    "2646b16779fccd6e": {
+      "spotHash": "2646b16779fccd6e",
+      "gtoFreq": {
+        "raise": 9,
+        "call": 46,
+        "fold": 45,
+        "bet": 47,
+        "check": 53
+      },
+      "ev": 0.33,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Jd Td 4h",
+      "street": "flop"
+    },
+    "54077c3882dbc023": {
+      "spotHash": "54077c3882dbc023",
+      "gtoFreq": {
+        "raise": 8,
+        "call": 47,
+        "fold": 45,
+        "bet": 61,
+        "check": 39
+      },
+      "ev": 0.4,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Ah 9h 4c",
+      "street": "flop"
+    },
+    "65f0a24a1722705e": {
+      "spotHash": "65f0a24a1722705e",
+      "gtoFreq": {
+        "raise": 8,
+        "call": 47,
+        "fold": 45,
+        "bet": 61,
+        "check": 39
+      },
+      "ev": 0.39,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Ah 9h 4c",
+      "street": "flop"
+    },
+    "c328cae6ac1675e6": {
+      "spotHash": "c328cae6ac1675e6",
+      "gtoFreq": {
+        "raise": 11,
+        "call": 50,
+        "fold": 39,
+        "bet": 59,
+        "check": 41
+      },
+      "ev": 0.3,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Ah 9h 4c",
+      "street": "flop"
+    },
+    "d9d8c2f4160c2154": {
+      "spotHash": "d9d8c2f4160c2154",
+      "gtoFreq": {
+        "raise": 9,
+        "call": 46,
+        "fold": 45,
+        "bet": 53,
+        "check": 47
+      },
+      "ev": 0.47,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Ks Qs 7d",
+      "street": "flop"
+    },
+    "309b588dacd8de23": {
+      "spotHash": "309b588dacd8de23",
+      "gtoFreq": {
+        "raise": 8,
+        "call": 47,
+        "fold": 45,
+        "bet": 52,
+        "check": 48
+      },
+      "ev": 0.41,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Ks Qs 7d",
+      "street": "flop"
+    },
+    "77c9f0bbc30698ec": {
+      "spotHash": "77c9f0bbc30698ec",
+      "gtoFreq": {
+        "raise": 9,
+        "call": 46,
+        "fold": 45,
+        "bet": 52,
+        "check": 48
+      },
+      "ev": 0.42,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Ks Qs 7d",
+      "street": "flop"
+    },
+    "f74e7177de2510e5": {
+      "spotHash": "f74e7177de2510e5",
+      "gtoFreq": {
+        "raise": 19,
+        "call": 42,
+        "fold": 39,
+        "bet": 31,
+        "check": 69
+      },
+      "ev": 0.31,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "8c 7h 6d",
+      "street": "flop"
+    },
+    "1eb9688a007c3ba7": {
+      "spotHash": "1eb9688a007c3ba7",
+      "gtoFreq": {
+        "raise": 19,
+        "call": 42,
+        "fold": 39,
+        "bet": 34,
+        "check": 66
+      },
+      "ev": 0.45,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "8c 7h 6d",
+      "street": "flop"
+    },
+    "3f05a3bf5d65c8d8": {
+      "spotHash": "3f05a3bf5d65c8d8",
+      "gtoFreq": {
+        "raise": 17,
+        "call": 40,
+        "fold": 43,
+        "bet": 34,
+        "check": 66
+      },
+      "ev": 0.44,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "8c 7h 6d",
+      "street": "flop"
+    },
+    "c379806820b716f3": {
+      "spotHash": "c379806820b716f3",
+      "gtoFreq": {
+        "raise": 11,
+        "call": 44,
+        "fold": 45,
+        "bet": 45,
+        "check": 55
+      },
+      "ev": 0.51,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Ad Kd Qd",
+      "street": "flop"
+    },
+    "821d919e38efe661": {
+      "spotHash": "821d919e38efe661",
+      "gtoFreq": {
+        "raise": 11,
+        "call": 41,
+        "fold": 48,
+        "bet": 44,
+        "check": 56
+      },
+      "ev": 0.68,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Ah 7d 2c Kd",
+      "street": "turn"
+    },
+    "edc751f6d4abbb81": {
+      "spotHash": "edc751f6d4abbb81",
+      "gtoFreq": {
+        "raise": 12,
+        "call": 42,
+        "fold": 46,
+        "bet": 40,
+        "check": 60
+      },
+      "ev": 0.31,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Kh 8d 3c Qh",
+      "street": "turn"
+    },
+    "08498f217f594f54": {
+      "spotHash": "08498f217f594f54",
+      "gtoFreq": {
+        "raise": 13,
+        "call": 43,
+        "fold": 44,
+        "bet": 40,
+        "check": 60
+      },
+      "ev": 0.33,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Jh Th 9d 2c",
+      "street": "turn"
+    },
+    "0448539de73cef6d": {
+      "spotHash": "0448539de73cef6d",
+      "gtoFreq": {
+        "raise": 10,
+        "call": 40,
+        "fold": 50,
+        "bet": 43,
+        "check": 57
+      },
+      "ev": 0.54,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "8h 8d 2c Ah",
+      "street": "turn"
+    },
+    "784d51d08312b4f0": {
+      "spotHash": "784d51d08312b4f0",
+      "gtoFreq": {
+        "raise": 10,
+        "call": 40,
+        "fold": 50,
+        "bet": 43,
+        "check": 57
+      },
+      "ev": 0.6,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Qh 7d 2c As",
+      "street": "turn"
+    },
+    "e90fe8c0dc699840": {
+      "spotHash": "e90fe8c0dc699840",
+      "gtoFreq": {
+        "raise": 14,
+        "call": 44,
+        "fold": 42,
+        "bet": 44,
+        "check": 56
+      },
+      "ev": 0.66,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Ah Kh 7h 2d",
+      "street": "turn"
+    },
+    "8ae6f9d022f91a1d": {
+      "spotHash": "8ae6f9d022f91a1d",
+      "gtoFreq": {
+        "raise": 12,
+        "call": 42,
+        "fold": 46,
+        "bet": 42,
+        "check": 58
+      },
+      "ev": 0.54,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Kd Qd Jc 2h",
+      "street": "turn"
+    },
+    "98f1536c1c77ab12": {
+      "spotHash": "98f1536c1c77ab12",
+      "gtoFreq": {
+        "raise": 14,
+        "call": 44,
+        "fold": 42,
+        "bet": 43,
+        "check": 57
+      },
+      "ev": 0.61,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Th 9h 8c Ah",
+      "street": "turn"
+    },
+    "46bd3d50b89ec0c2": {
+      "spotHash": "46bd3d50b89ec0c2",
+      "gtoFreq": {
+        "raise": 11,
+        "call": 41,
+        "fold": 48,
+        "bet": 46,
+        "check": 54
+      },
+      "ev": 0.34,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Ah 7d 2c Kd 3h",
+      "street": "river"
+    },
+    "24fc741653b16815": {
+      "spotHash": "24fc741653b16815",
+      "gtoFreq": {
+        "raise": 12,
+        "call": 42,
+        "fold": 46,
+        "bet": 48,
+        "check": 52
+      },
+      "ev": 0.48,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Kh 8d 3c Qh 2c",
+      "street": "river"
+    },
+    "d5221bfd909ba005": {
+      "spotHash": "d5221bfd909ba005",
+      "gtoFreq": {
+        "raise": 10,
+        "call": 40,
+        "fold": 50,
+        "bet": 47,
+        "check": 53
+      },
+      "ev": 0.39,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Jh Th 9d 2c Ah",
+      "street": "river"
+    },
+    "21cb0c6747bbc89b": {
+      "spotHash": "21cb0c6747bbc89b",
+      "gtoFreq": {
+        "raise": 13,
+        "call": 43,
+        "fold": 44,
+        "bet": 46,
+        "check": 54
+      },
+      "ev": 0.31,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Qh 7d 2c As Ks",
+      "street": "river"
+    },
+    "6d1ff4f2e849bdb5": {
+      "spotHash": "6d1ff4f2e849bdb5",
+      "gtoFreq": {
+        "raise": 11,
+        "call": 41,
+        "fold": 48,
+        "bet": 46,
+        "check": 54
+      },
+      "ev": 0.36,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Ah Kh 7h 2d 9c",
+      "street": "river"
+    },
+    "b199faf8f4e7cbb6": {
+      "spotHash": "b199faf8f4e7cbb6",
+      "gtoFreq": {
+        "raise": 11,
+        "call": 41,
+        "fold": 48,
+        "bet": 49,
+        "check": 51
+      },
+      "ev": 0.6,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Kd Qd Jc 2h 5s",
+      "street": "river"
+    },
+    "2ec4fa613589d9dc": {
+      "spotHash": "2ec4fa613589d9dc",
+      "gtoFreq": {
+        "raise": 7,
+        "call": 48,
+        "fold": 45,
+        "bet": 62,
+        "check": 38
+      },
+      "ev": 0.26,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Ah 7d 2c",
+      "street": "flop"
+    },
+    "3d7ffb3de942d14d": {
+      "spotHash": "3d7ffb3de942d14d",
+      "gtoFreq": {
+        "raise": 9,
+        "call": 49,
+        "fold": 42,
+        "bet": 65,
+        "check": 35
+      },
+      "ev": 0.4,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Ah 7d 2c",
+      "street": "flop"
+    },
+    "47854b3820dd7a78": {
+      "spotHash": "47854b3820dd7a78",
+      "gtoFreq": {
+        "raise": 5,
+        "call": 50,
+        "fold": 45,
+        "bet": 59,
+        "check": 41
+      },
+      "ev": 0.26,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Kh 8d 3c",
+      "street": "flop"
+    },
+    "47db7d2634342871": {
+      "spotHash": "47db7d2634342871",
+      "gtoFreq": {
+        "raise": 9,
+        "call": 50,
+        "fold": 41,
+        "bet": 62,
+        "check": 38
+      },
+      "ev": 0.39,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Kh 8d 3c",
+      "street": "flop"
+    },
+    "e9930ede46807f6e": {
+      "spotHash": "e9930ede46807f6e",
+      "gtoFreq": {
+        "raise": 9,
+        "call": 48,
+        "fold": 43,
+        "bet": 59,
+        "check": 41
+      },
+      "ev": 0.36,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Qh 7d 2c",
+      "street": "flop"
+    },
+    "bcf0f90816b8592f": {
+      "spotHash": "bcf0f90816b8592f",
+      "gtoFreq": {
+        "raise": 11,
+        "call": 50,
+        "fold": 39,
+        "bet": 58,
+        "check": 42
+      },
+      "ev": 0.32,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Qh 7d 2c",
+      "street": "flop"
+    },
+    "acc217d7caaa1fbd": {
+      "spotHash": "acc217d7caaa1fbd",
+      "gtoFreq": {
+        "raise": 11,
+        "call": 44,
+        "fold": 45,
+        "bet": 48,
+        "check": 52
+      },
+      "ev": 0.53,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Ah Kd Qh",
+      "street": "flop"
+    },
+    "6f6dcc6f43aff20a": {
+      "spotHash": "6f6dcc6f43aff20a",
+      "gtoFreq": {
+        "raise": 12,
+        "call": 45,
+        "fold": 43,
+        "bet": 45,
+        "check": 55
+      },
+      "ev": 0.42,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Ah Kd Qh",
+      "street": "flop"
+    },
+    "d661f43b1e636014": {
+      "spotHash": "d661f43b1e636014",
+      "gtoFreq": {
+        "raise": 16,
+        "call": 41,
+        "fold": 43,
+        "bet": 37,
+        "check": 63
+      },
+      "ev": 0.51,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Jh Th 9d",
+      "street": "flop"
+    },
+    "ec210c9c90f335e6": {
+      "spotHash": "ec210c9c90f335e6",
+      "gtoFreq": {
+        "raise": 16,
+        "call": 41,
+        "fold": 43,
+        "bet": 33,
+        "check": 67
+      },
+      "ev": 0.29,
+      "exploitability": 0.005,
+      "source": "precomputed",
+      "solveTimeMs": 2,
+      "board": "Jh Th 9d",
+      "street": "flop"
+    }
+  }
+}

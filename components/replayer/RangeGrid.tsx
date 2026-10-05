@@ -1,0 +1,250 @@
+"use client";
+
+import { memo, useCallback, useMemo, useState } from "react";
+import {
+  getPreflopRange,
+  handLabel,
+  type Position,
+  type StackDepth,
+  type HandGto,
+} from "@/lib/solver/mockPreflop";
+
+const POSITIONS: Position[] = ["UTG", "HJ", "CO", "BTN", "SB", "BB"];
+const STACKS: StackDepth[] = ["20bb", "40bb", "100bb", "200bb"];
+
+function bgForPrimary(h: HandGto): string {
+  const { primary, freq } = h;
+  const intensity = Math.max(freq.raise, freq.call, freq.fold);
+  if (primary === "raise") {
+    if (intensity >= 80) return "bg-emerald-600 text-white";
+    if (intensity >= 55) return "bg-emerald-500 text-white";
+    return "bg-emerald-300 text-emerald-900";
+  }
+  if (primary === "call") return "bg-amber-400 text-zinc-900";
+  if (intensity >= 80) return "bg-red-500 text-white";
+  if (intensity >= 55) return "bg-red-400 text-white";
+  return "bg-zinc-200 text-zinc-700";
+}
+
+interface GridCellProps {
+  hand: HandGto;
+  isSelected: boolean;
+  onHover: (h: HandGto | null) => void;
+  onSelect: (h: HandGto) => void;
+}
+
+const GridCell = memo(function GridCell({ hand, isSelected, onHover, onSelect }: GridCellProps) {
+  return (
+    <button
+      onMouseEnter={() => onHover(hand)}
+      onMouseLeave={() => onHover(null)}
+      onClick={() => onSelect(hand)}
+      className={`aspect-square rounded-sm text-[9px] font-bold leading-none transition hover:brightness-110 hover:ring-1 hover:ring-zinc-900 ${bgForPrimary(
+        hand
+      )} ${isSelected ? "ring-2 ring-zinc-900 ring-offset-1" : ""}`}
+      title={`${hand.hand}: R${hand.freq.raise}/C${hand.freq.call}/F${hand.freq.fold} EV ${hand.ev}bb`}
+      aria-label={`${hand.hand} ${hand.primary} ${hand.freq.raise}/${hand.freq.call}/${hand.freq.fold}`}
+    >
+      {hand.hand}
+    </button>
+  );
+});
+
+export default function RangeGrid() {
+  const [position, setPosition] = useState<Position>("BTN");
+  const [stack, setStack] = useState<StackDepth>("100bb");
+  const [selected, setSelected] = useState<HandGto | null>(null);
+  const [hovered, setHovered] = useState<HandGto | null>(null);
+
+  const range = useMemo(() => getPreflopRange(position, stack), [position, stack]);
+
+  const grid: HandGto[][] = useMemo(() => {
+    const g: HandGto[][] = [];
+    let idx = 0;
+    for (let r = 0; r < 13; r++) {
+      const row: HandGto[] = [];
+      for (let c = 0; c < 13; c++) {
+        row.push(range[idx++]);
+      }
+      g.push(row);
+    }
+    return g;
+  }, [range]);
+
+  const flatGrid = useMemo(() => grid.flat(), [grid]);
+
+  const active = hovered ?? selected;
+
+  const { raiseCount, callCount, foldCount } = useMemo(() => {
+    let r = 0, c = 0, f = 0;
+    for (const h of range) {
+      if (h.primary === "raise") r++;
+      else if (h.primary === "call") c++;
+      else f++;
+    }
+    return { raiseCount: r, callCount: c, foldCount: f };
+  }, [range]);
+
+  const handleHover = useCallback((h: HandGto | null) => setHovered(h), []);
+  const handleSelect = useCallback((h: HandGto) => setSelected(h), []);
+
+  return (
+    <div className="space-y-4">
+      <div className="flex flex-wrap gap-3">
+        <div className="flex items-center gap-2">
+          <span className="text-xs font-semibold uppercase tracking-wide text-zinc-500">
+            Position
+          </span>
+          <div className="flex rounded-full border border-zinc-200 bg-white p-1">
+            {POSITIONS.map((p) => (
+              <button
+                key={p}
+                onClick={() => setPosition(p)}
+                className={`rounded-full px-3 py-1 text-xs font-bold transition ${
+                  position === p
+                    ? "bg-zinc-900 text-white"
+                    : "text-zinc-600 hover:bg-zinc-100"
+                }`}
+              >
+                {p}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="text-xs font-semibold uppercase tracking-wide text-zinc-500">
+            Stack
+          </span>
+          <div className="flex rounded-full border border-zinc-200 bg-white p-1">
+            {STACKS.map((s) => (
+              <button
+                key={s}
+                onClick={() => setStack(s)}
+                className={`rounded-full px-3 py-1 text-xs font-bold transition ${
+                  stack === s
+                    ? "bg-emerald-600 text-white"
+                    : "text-zinc-600 hover:bg-zinc-100"
+                }`}
+              >
+                {s}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="flex flex-col gap-6 lg:flex-row">
+        <div className="flex-1">
+          <div className="overflow-x-auto">
+            <div className="min-w-[420px]">
+              <div className="grid grid-cols-13 gap-0.5">
+                {flatGrid.map((h) => (
+                  <GridCell
+                    key={h.hand}
+                    hand={h}
+                    isSelected={selected?.hand === h.hand}
+                    onHover={handleHover}
+                    onSelect={handleSelect}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-3 flex flex-wrap gap-3 text-xs">
+            <span className="flex items-center gap-1.5">
+              <span className="h-3 w-3 rounded-sm bg-emerald-500" /> Raise ({raiseCount})
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="h-3 w-3 rounded-sm bg-amber-400" /> Call ({callCount})
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="h-3 w-3 rounded-sm bg-red-400" /> Fold ({foldCount})
+            </span>
+            <span className="ml-auto text-zinc-500">
+              {position} · {stack} · 6-max · rake 5% cap $3 · Mock GTO
+            </span>
+          </div>
+        </div>
+
+        <div className="w-full lg:w-72">
+          <div className="rounded-xl border border-zinc-200 bg-white p-4">
+            {active ? (
+              <>
+                <div className="flex items-baseline justify-between">
+                  <span className="text-2xl font-extrabold">{active.hand}</span>
+                  <span
+                    className={`rounded-full px-2.5 py-1 text-xs font-bold ${
+                      active.primary === "raise"
+                        ? "bg-emerald-100 text-emerald-700"
+                        : active.primary === "call"
+                          ? "bg-amber-100 text-amber-800"
+                          : "bg-red-100 text-red-700"
+                    }`}
+                  >
+                    {active.primary.toUpperCase()}
+                  </span>
+                </div>
+                <p className="mt-1 text-xs text-zinc-500">
+                  {position} · {stack} · GTO frequencies (mock)
+                </p>
+
+                <div className="mt-4 space-y-2">
+                  {(
+                    [
+                      ["Raise", active.freq.raise, "bg-emerald-500"],
+                      ["Call", active.freq.call, "bg-amber-400"],
+                      ["Fold", active.freq.fold, "bg-red-400"],
+                    ] as const
+                  ).map(([label, pct, bar]) => (
+                    <div key={label}>
+                      <div className="flex justify-between text-xs">
+                        <span className="font-medium">{label}</span>
+                        <span className="font-bold">{pct}%</span>
+                      </div>
+                      <div className="mt-1 h-2 rounded-full bg-zinc-100">
+                        <div
+                          className={`h-2 rounded-full ${bar}`}
+                          style={{ width: `${pct}%` }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-4 rounded-lg bg-zinc-50 p-3">
+                  <p className="text-xs font-semibold text-zinc-600">EV</p>
+                  <p className="text-lg font-bold">
+                    {active.ev > 0 ? "+" : ""}
+                    {active.ev} bb
+                  </p>
+                  <p className="text-xs text-zinc-500">
+                    Quantized to 0.1bb · Mock solver (TexasSolver-style)
+                  </p>
+                </div>
+
+                <p className="mt-3 text-xs leading-4 text-zinc-600">
+                  {active.primary === "raise" &&
+                    "GTO raises this hand for value/equity denial. Mix in calls at low frequency to protect calling range."}
+                  {active.primary === "call" &&
+                    "GTO calls to realize equity and keep villain's bluffs in. Fold is close — blocker effects matter."}
+                  {active.primary === "fold" &&
+                    "GTO folds — not enough equity vs opening range. Raise as bluff only with blockers at low freq."}
+                </p>
+              </>
+            ) : (
+              <p className="text-sm text-zinc-500">
+                Hover or tap a hand to see GTO action, frequencies, and EV.
+              </p>
+            )}
+          </div>
+
+          <div className="mt-3 rounded-lg bg-amber-50 p-3 text-xs leading-4 text-amber-800">
+            Training only — not for use during play. Frequencies are mock GTO for
+            MVP; production uses pre-computed TexasSolver trees.
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

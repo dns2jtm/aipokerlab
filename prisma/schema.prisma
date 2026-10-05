@@ -1,0 +1,210 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Per architecture section 2.1 — core models
+
+model User {
+  id               String   @id @default(cuid())
+  email            String   @unique
+  name             String?
+  image            String?
+  role             String   @default("user") // user | admin | coach
+  subscriptionTier String   @default("free") // free | pro | lab_plus
+  stripeCustomerId String?  @unique
+  coachTone        String?  // concise | detailed | math-heavy
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  subscription      Subscription?
+  handHistories     HandHistory[]
+  hands             Hand[]
+  leaks             Leak[]
+  drills            Drill[]
+  drillAttempts     DrillAttempt[]
+  progress          Progress?
+  coachingSessions  AiCoachingSession[]
+  feedbacks         Feedback[]
+
+  @@index([email])
+}
+
+model Subscription {
+  id               String   @id @default(cuid())
+  userId           String   @unique
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  stripeSubId      String?  @unique
+  tier             String   // free | pro | lab_plus
+  status           String   // active | past_due | canceled | trialing
+  currentPeriodEnd DateTime?
+  solverCredits    Int      @default(5)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model HandHistory {
+  id         String    @id @default(cuid())
+  userId     String
+  user       User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  source     String    // pokerstars | ggpoker | generic
+  rawText    String    @db.Text
+  parsedJson Json?
+  stakes     String?
+  format     String?
+  uploadedAt DateTime  @default(now())
+  processedAt DateTime?
+
+  hands Hand[]
+
+  @@index([userId, uploadedAt])
+}
+
+model Hand {
+  id              String   @id @default(cuid())
+  handHistoryId   String?
+  handHistory     HandHistory? @relation(fields: [handHistoryId], references: [id], onDelete: SetNull)
+  userId          String
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  heroPosition    String?
+  villainPosition String?
+  street          String?  // preflop | flop | turn | river
+  board           String?  // e.g. "Qh 7d 2c"
+  pot             Float?
+  actions         Json?    // ParsedAction[]
+  heroCards       String?  // e.g. "As 5s"
+  resultBB        Float?
+  createdAt       DateTime @default(now())
+
+  leakLinks LeakHandLink[]
+  drillAttempts DrillAttempt[]
+
+  @@index([userId, createdAt])
+}
+
+model SolverCache {
+  id           String   @id @default(cuid())
+  spotHash     String   @unique
+  board        String?
+  ranges       Json?
+  betSizings   Json?
+  stackDepth   String?
+  rake         String?
+  solutionJson Json?
+  evMap        Json?
+  strategyMap  Json?
+  createdAt    DateTime @default(now())
+  hitCount     Int      @default(0)
+
+  @@index([spotHash])
+}
+
+model Leak {
+  id            String   @id @default(cuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  category      String   // Preflop | Postflop | Turn | River
+  subcategory   String   // e.g. "BB vs BTN over-fold"
+  severity      String   // low | medium | high
+  frequency     String?  // e.g. "68% fold (GTO 42%)"
+  evLossBBper100 Float?
+  sampleSize    Int?
+  firstSeen     DateTime @default(now())
+  lastSeen      DateTime @updatedAt
+  status        String   @default("open") // open | drilling | fixed
+
+  handLinks LeakHandLink[]
+  drills    Drill[]
+
+  @@index([userId, severity])
+}
+
+model LeakHandLink {
+  id     String @id @default(cuid())
+  leakId String
+  leak   Leak   @relation(fields: [leakId], references: [id], onDelete: Cascade)
+  handId String
+  hand   Hand   @relation(fields: [handId], references: [id], onDelete: Cascade)
+  evLoss Float?
+
+  @@unique([leakId, handId])
+}
+
+model Drill {
+  id         String    @id @default(cuid())
+  userId     String
+  user       User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  leakId     String?
+  leak       Leak?     @relation(fields: [leakId], references: [id], onDelete: SetNull)
+  type       String    // preflop | flop | turn | river | mixed
+  spotHash   String?
+  configJson Json?
+  dueAt      DateTime?
+  completedAt DateTime?
+  score      Float?
+  evScore    Float?
+  createdAt  DateTime  @default(now())
+
+  attempts DrillAttempt[]
+
+  @@index([userId, dueAt])
+}
+
+model DrillAttempt {
+  id           String   @id @default(cuid())
+  drillId      String
+  drill        Drill    @relation(fields: [drillId], references: [id], onDelete: Cascade)
+  userId       String
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  handId       String?
+  hand         Hand?    @relation(fields: [handId], references: [id], onDelete: SetNull)
+  chosenAction String?
+  gtoAction    String?
+  evLoss       Float?
+  timeMs       Int?
+  createdAt    DateTime @default(now())
+
+  @@index([userId, createdAt])
+}
+
+model Progress {
+  id             String   @id @default(cuid())
+  userId         String   @unique
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  skillTreeJson  Json?
+  level          Int      @default(1)
+  streak         Int      @default(0)
+  xp             Int      @default(0)
+  nextMilestone  String?
+  updatedAt      DateTime @updatedAt
+}
+
+model AiCoachingSession {
+  id            String   @id @default(cuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  handId        String?
+  leakId        String?
+  prompt        String?  @db.Text
+  solverContext Json?
+  llmResponse   String?  @db.Text
+  tokens        Int?
+  createdAt     DateTime @default(now())
+
+  @@index([userId, createdAt])
+}
+
+model Feedback {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  targetType String   // hand | drill | coaching
+  targetId   String
+  rating     Int?
+  comment    String?  @db.Text
+  createdAt  DateTime @default(now())
+}
