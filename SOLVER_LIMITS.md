@@ -82,7 +82,16 @@ Measures opponent best-response margin `(BR value − safety value)⁺` in chips
 
 ---
 
-## 4. Validation Commands
+## 4. PyTorch Belief-State Value Network, IR Ranking & Offline Evaluation (`value_net_torch.py`)
+
+- **PyTorch ReBeL Turn Belief-State Value Network (`TurnValueNetTorch`)**: Trains a multi-layer perceptron (`torch.nn.Module`, `AdamW`, cosine annealing LR schedule, range-weighted Huber/MSE loss, gradient clipping) mapping 2,707-dim public turn states (`52` board multi-hot + `3` pot/stack scalars + `2 × 1,326` Bayesian range beliefs) to `2,652` counterfactual forward values. Exports binary weights directly into the Rust `bincode` / `VN01` `value_net.bin` format (`save_rust_mlp` / `load_rust_mlp`).
+- **Offline Ranking & Calibration Evaluation (`evaluate_value_net_offline`)**: Computes Normalized Discounted Cumulative Gain (`NDCG@5`, `NDCG@10`, `NDCG@20`), Mean Reciprocal Rank (`MRR`), Spearman rank correlation (`ρ`), top-decile EV hit rate, range-weighted Huber/MSE loss, and Brier calibration scores on held-out exactly solved turn subgames.
+- **Personalized Leak-to-Drill Recommender (`DrillRecommender`)**: Hybrid lexical (token + character 3-gram TF-IDF cosine similarity) and telemetry EV-loss severity ranking engine with novelty discounting, evaluated offline with `NDCG@k`, `MRR`, `Precision@k`, and `Recall@k` (`evaluate_drill_recommender`).
+- **Statistical A/B Policy Testing (`ab_policy_test`)**: Two-sample Welch $t$-test with 95% confidence intervals and AIVAT-style control-variate variance reduction.
+
+---
+
+## 5. Validation Commands
 
 ```sh
 python3 -m pytest -q

@@ -255,8 +255,12 @@ def parse_distill(text):
     )
 
 
-def train_value_net(name, samples=500, solve_iters=120, solve_ms=5000, hidden='256,256', epochs=40, lr=1e-3, batch=64, seed=11):
-    """Generate solved turn spots from a trained blueprint and train its ReBeL belief-state value network."""
+def train_value_net(name, samples=500, solve_iters=120, solve_ms=5000, hidden='256,256', epochs=40, lr=1e-3, batch=64, seed=11, backend='rust', loss_type='huber'):
+    """Generate solved turn spots from a trained blueprint and train its ReBeL belief-state value network.
+
+    Supports both the native Rust trainer (`backend='rust'`) and the PyTorch trainer (`backend='torch'`)
+    with AdamW, cosine annealing, Huber/MSE loss, and offline IR ranking metrics (`NDCG@k`, `MRR`, `Brier`).
+    """
     if samples < 10 or epochs < 1:
         raise ValueError('Require at least 10 samples and 1 epoch')
     directory, manifest, bp, binary, env = model(name)
@@ -276,19 +280,47 @@ def train_value_net(name, samples=500, solve_iters=120, solve_ms=5000, hidden='2
     gen_metrics = bounded_run(gen_cmd, gen_log, env=env, timeout=1800)
     gen_parsed = parse_turn_data(gen_log.read_text())
 
-    train_log = directory / 'train-value-net.log'
-    train_cmd = [
-        str(binary), 'train-value-net',
-        '--data', str(turn_data_path),
-        '--out', str(value_net_path),
-        '--hidden', str(hidden),
-        '--epochs', str(epochs),
-        '--lr', str(lr),
-        '--batch', str(batch),
-        '--seed', str(seed),
-    ]
-    train_metrics = bounded_run(train_cmd, train_log, env=env, timeout=900)
-    train_parsed = parse_value_net(train_log.read_text())
+    hidden_sizes = tuple(int(x.strip()) for x in str(hidden).split(',') if x.strip())
+    if backend == 'torch':
+        import value_net_torch as vnt
+        started = time.monotonic()
+        records = vnt.load_turn_samples_bincode(turn_data_path)
+        torch_net, torch_metrics = vnt.train_value_net_torch(
+            records,
+            hidden_sizes=hidden_sizes,
+            epochs=int(epochs),
+            lr=float(lr),
+            batch_size=int(batch),
+            loss_type=loss_type,
+            seed=int(seed),
+        )
+        vnt.save_rust_mlp(torch_net, value_net_path, include_vn01_header=False)
+        train_metrics = dict(seconds=round(time.monotonic() - started, 3), backend='pytorch')
+        val_loss = float(torch_metrics['val_loss'])
+        offline_eval = torch_metrics['offline_evaluation']
+    else:
+        train_log = directory / 'train-value-net.log'
+        train_cmd = [
+            str(binary), 'train-value-net',
+            '--data', str(turn_data_path),
+            '--out', str(value_net_path),
+            '--hidden', str(hidden),
+            '--epochs', str(epochs),
+            '--lr', str(lr),
+            '--batch', str(batch),
+            '--seed', str(seed),
+        ]
+        train_metrics = bounded_run(train_cmd, train_log, env=env, timeout=900)
+        train_parsed = parse_value_net(train_log.read_text())
+        val_loss = train_parsed['val_loss']
+        offline_eval = None
+        try:
+            import value_net_torch as vnt
+            records = vnt.load_turn_samples_bincode(turn_data_path)
+            loaded_net = vnt.load_rust_mlp(value_net_path)
+            offline_eval = vnt.evaluate_value_net_offline(loaded_net, records[:max(1, len(records) // 10)])
+        except Exception:
+            pass
 
     vnet_info = dict(
         value_net_sha256=sha256(value_net_path),
@@ -297,7 +329,9 @@ def train_value_net(name, samples=500, solve_iters=120, solve_ms=5000, hidden='2
         solve_iters=solve_iters,
         hidden=hidden,
         epochs=epochs,
-        val_loss=train_parsed['val_loss'],
+        backend=backend,
+        val_loss=val_loss,
+        offline_evaluation=offline_eval,
         gen_metrics=gen_metrics,
         train_metrics=train_metrics,
     )
@@ -1626,6 +1660,8 @@ def main():
     p.add_argument('--samples', type=int, default=500); p.add_argument('--solve-iters', type=int, default=120)
     p.add_argument('--solve-ms', type=int, default=5000); p.add_argument('--hidden', default='256,256')
     p.add_argument('--epochs', type=int, default=40); p.add_argument('--seed', type=int, default=11)
+    p.add_argument('--backend', choices=('rust', 'torch'), default='rust')
+    p.add_argument('--loss', choices=('huber', 'mse'), default='huber')
     p = subs.add_parser('distill'); p.add_argument('--source', required=True); p.add_argument('--target', required=True)
     p.add_argument('--hands', type=int, default=400); p.add_argument('--search-ms', type=int, default=40)
     p.add_argument('--alpha', type=float, default=0.5); p.add_argument('--seed', type=int, default=11)
@@ -1642,7 +1678,7 @@ def main():
         elif args.cmd == 'train': result = train(args.name,args.profile,args.threads,args.players)
         elif args.cmd == 'evaluate': result = evaluate(args.name,args.hands,args.seeds)
         elif args.cmd == 'benchmark': result = benchmark_exploitability(args.name,args.br_hands,args.lbr_hands,args.aivat_hands,args.seed)
-        elif args.cmd == 'train-value-net': result = train_value_net(args.name,args.samples,args.solve_iters,args.solve_ms,args.hidden,args.epochs,seed=args.seed)
+        elif args.cmd == 'train-value-net': result = train_value_net(args.name,args.samples,args.solve_iters,args.solve_ms,args.hidden,args.epochs,seed=args.seed,backend=args.backend,loss_type=args.loss)
         elif args.cmd == 'distill': result = distill_model(args.source,args.target,args.hands,args.search_ms,args.alpha,seed=args.seed)
         elif args.cmd == 'crossplay': result = crossplay(args.focal,args.field,args.hands,args.seed)
         elif args.cmd == 'ablate-safety': result = ablate_safety(args.spots,args.iters,args.seed,args.target)
