@@ -1,0 +1,6 @@
+{
+  "repository": "https://github.com/conorarmstrong/noregrets",
+  "commit": "757f7692738069522195d2b486eec60a8b010c0c",
+  "license": "MIT",
+  "description": "Independent implementation; not the original Pluribus. Local review protocol added separately."
+}

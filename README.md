@@ -10,19 +10,24 @@ Beats GTO Wizard by being a better **coach**: explains WHY (blockers, MDF, equit
 - **PostgreSQL** (Neon / Supabase) + **Prisma ORM**
 - **Redis** (Upstash) — solver cache, rate limiting
 - **Stripe** — subscriptions (Free / Starter $19 / Pro $49 / Elite $99), Customer Portal, webhooks
-- **Hybrid Solver** — pre-computed DB (90% hits, &lt;50ms) + on-demand TexasSolver/PioSolver worker
+- **Native Rust 6-Max/HU Linear MCCFR & ReBeL Solver (`engine/noregrets` + `poker_lab.py`)** — Parallel Linear MCCFR blueprints with OCHS (Opponent-Cluster Hand Strength + EMD k-medians), VR-MCCFR control variates, ReBeL belief-state value networks (`valuenet.rs`), Burch safety-gadget continual resolving (`turn.rs`, `river.rs`, `ablate.rs`), expert-iteration distillation (`distill.rs`), AIVAT variance reduction (`aivat.rs`), and persistent `--stdio` JSON worker
+- **Python/NumPy CFR+ Restricted Subgame Solver (`showdown_solver.py` + `postflop.py`)** — Multi-sizing (`33%`, `66%`, `100%` pot), opponent reraise branches, IP/OOP equity-realization matrices, and exact NashConv (`solver_gap_chips`) measurement
+- **Hybrid Web Solver (`lib/solver/`)** — pre-computed DB (90% hits, <50ms) + on-demand solver service
 - **AI Coach** — OpenAI / Anthropic, Vercel AI SDK streaming, grounded in solver JSON (temp 0.3)
 - **Vercel** — hosting, ISR, edge functions
 
 ## Architecture Overview
 
-See [`plans/aipokerlab-architecture.md`](../plans/aipokerlab-architecture.md) for full system design.
+See [`SOLVER_LIMITS.md`](./SOLVER_LIMITS.md) for solver scope, architecture, and empirical benchmarks.
 
 ```
 app/(marketing)/  → landing, about, methodology, pricing, contact, privacy, terms
 app/(app)/        → dashboard, lab/preflop, replayer, leaks, drills, coach, billing
 app/api/          → solve, parse, coach, drills, billing (checkout/portal/webhook)
-lib/solver/       → SolverService abstraction (Precomputed / TexasSolver / Mock)
+lib/solver/       → TypeScript SolverService abstraction (Precomputed / TexasSolver / Mock)
+engine/noregrets/ → Native Rust 6-Max/HU Linear MCCFR + ReBeL Subgame Resolver
+poker_lab.py      → Python bridge & persistent stdio worker for engine/noregrets
+showdown_solver.py→ Fast NumPy CFR+ restricted subgame solver with exact NashConv
 lib/coach/        → promptComposer, coachEngine (grounded, leak-aware)
 lib/leaks/        → 12 detectors + analyzer (bb/100, severity)
 lib/drills/       → engine (leak → drill, spaced repetition)
@@ -34,14 +39,22 @@ components/       → replayer, drills, coach, marketing (AuthorBio)
 
 **Key design decisions:**
 - `spotHash` = deterministic hash of `board + ranges + stack + pot + betSizings + rake` → O(1) SolverCache lookup
+- Dual-layer postflop/subgame solving: Native Rust `engine/noregrets` (OCHS + VR-MCCFR + ReBeL value networks + Burch safety gadget) paired with fast NumPy CFR+ (`showdown_solver.py`)
 - Every `Drill` is generated FROM a `Leak` (closed loop)
 - AI Coach is grounded: every response tied to `strategyMap + evMap + leak profile`, cached 7 days
+
+## Solver Benchmarks (`SOLVER_LIMITS.md`)
+
+- **Exploitability Reduction (`ochs-vr-v1` vs `local-v1`)**: Reduces exact turn/river best-response (`br`) exploitability lower bound by **42.5%** (`304.0` vs `528.5 BB/100`) and Local Best Response (`lbr`) bound by **11.9%** (`376.3` vs `427.0 BB/100`).
+- **6-Max Cross-Play (24,000 hands)**: `distilled-v1` beats `ochs-vr-v1` by **+26.75 BB/100** and `local-v1` by **+40.57 BB/100**.
+- **Burch Gadget Safe-Resolving Ablation**: Under maximally corrupted range beliefs (`ε = 1.0`), unsafe resolving exposes up to **317.4 chips** (`9.8` chips mean) of best-response exploitation beyond the blueprint safety value, whereas Burch gadget safe-resolving bounds the mean margin to **1.7 chips** (`< 0.1%` of the pot) and cuts worst-case combo exploitation by **86.5%** (`42.7` vs `317.4` chips).
 
 ## Getting Started
 
 ### Prerequisites
 
 - Node 20+, npm
+- Rust toolchain (`cargo`) & Python 3.11+ (for native solver & lab tests)
 - Postgres (local or Neon/Supabase)
 - Stripe account (optional for local — mocks gracefully)
 
@@ -76,11 +89,17 @@ npx prisma generate
 npx prisma db seed
 ```
 
-### 4. Run
+### 4. Run & Test
 
 ```bash
 npm run dev
 # → http://localhost:3000
+
+# Run TypeScript unit tests
+npm test
+
+# Run Python solver & lab test suite
+python3 -m pytest -q
 ```
 
 - Marketing: `/`, `/about`, `/methodology`, `/pricing`, `/contact`, `/privacy`, `/terms`
@@ -124,6 +143,8 @@ npm run start
 | `npm run build` | Production build |
 | `npm run start` | Start production server |
 | `npm run lint` | ESLint |
+| `npm test` | Vitest suite |
+| `python3 -m pytest -q` | Python CFR+ & Native Rust solver bridge tests |
 
 ## ToS Compliance
 

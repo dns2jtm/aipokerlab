@@ -39,3 +39,21 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Python & Native Rust Solver Engine
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.engine/
+engine/noregrets/target/
+research_runs/
+
+# Local / editor configs
+AGENTS.md
+CLAUDE.md
+.roo/
+.cursor/
+.claude/
+.windsurf/
+.aider*

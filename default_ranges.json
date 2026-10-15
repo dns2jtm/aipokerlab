@@ -1,0 +1,90 @@
+{
+  "20bb": {
+    "open": {
+      "BTN": ["22+", "A2s+", "K5s+", "Q8s+", "J9s+", "T9s", "98s", "87s", "76s", "65s", "54s", "ATo+", "KTo+", "QTo+", "JTo", "T9o", "98o"],
+      "SB": ["22+", "A2s+", "K6s+", "Q8s+", "J9s+", "T9s", "98s", "87s", "76s", "65s", "ATs+", "KTs+", "QTs+", "JTs", "ATo+", "KTo+", "QJo"],
+      "BB": ["22+", "A2s+", "K5s+", "Q6s+", "J8s+", "T9s", "98s", "87s", "76s", "65s", "54s", "A9o+", "K9o+", "Q9o+", "J9o+", "T9o"],
+      "UTG": ["77+", "ATs+", "KJs+", "QJs", "ATo+", "KQo"],
+      "MP": ["55+", "A9s+", "KTs+", "QJs", "AJo+", "KQo"],
+      "CO": ["33+", "A5s+", "K9s+", "Q9s+", "J9s+", "T9s", "98s", "A9o+", "KJo+", "QJo"]
+    },
+    "facing_open": {
+      "BB_vs_UTG": ["TT+", "AKs", "AQs", "KQs", "AQo+", "AKo"],
+      "BB_vs_MP": ["99+", "AJs+", "KQs", "AJo+", "KQo"],
+      "BB_vs_CO": ["88+", "ATs+", "KJs+", "QJs", "AJo+", "KJo+", "QJo"],
+      "BB_vs_BTN": ["77+", "A9s+", "K9s+", "Q9s+", "J9s+", "T9s", "A9o+", "KTo+", "QTo+", "JTo"],
+      "BB_vs_SB": ["66+", "A8s+", "K8s+", "Q8s+", "J8s+", "T8s", "98s", "A8o+", "KTo+", "QTo+"]
+    },
+    "facing_3bet": {
+      "BB": ["JJ+", "AKs", "AQs"],
+      "BTN": ["TT+", "AKs", "AQs"],
+      "SB": ["QQ+", "AKs"]
+    }
+  },
+  "50bb": {
+    "open": {
+      "BTN": ["22+", "A2s+", "K5s+", "Q8s+", "J9s+", "T9s", "98s", "87s", "76s", "65s", "54s", "A9o+", "KTo+", "QTo+", "JTo", "T9o"],
+      "SB": ["22+", "A2s+", "K6s+", "Q8s+", "J9s+", "T9s", "98s", "87s", "76s", "ATs+", "KTs+", "QTs+", "JTs", "ATo+", "KTo+", "QJo"],
+      "BB": ["22+", "A2s+", "K5s+", "Q6s+", "J8s+", "T9s", "98s", "87s", "76s", "65s", "A8o+", "K9o+", "Q9o+", "J9o+"],
+      "UTG": ["88+", "ATs+", "KQs", "ATo+", "KQo"],
+      "MP": ["66+", "A9s+", "KTs+", "QJs", "AJo+", "KQo"],
+      "CO": ["44+", "A5s+", "K9s+", "Q9s+", "J9s+", "T9s", "98s", "A8o+", "KJo+", "QJo"]
+    },
+    "facing_open": {
+      "BB_vs_UTG": ["JJ+", "AKs", "AQs", "KQs", "AQo+", "AKo"],
+      "BB_vs_MP": ["TT+", "AJs+", "KQs", "AJo+", "KQo"],
+      "BB_vs_CO": ["99+", "ATs+", "KJs+", "QJs", "AJo+", "KJo+"],
+      "BB_vs_BTN": ["88+", "A9s+", "K9s+", "Q9s+", "J9s+", "A9o+", "KTo+", "QTo+"],
+      "BB_vs_SB": ["77+", "A8s+", "K8s+", "Q8s+", "J8s+", "T8s", "A8o+", "KTo+"]
+    },
+    "facing_3bet": {
+      "BB": ["QQ+", "AKs", "AQs"],
+      "BTN": ["JJ+", "AKs", "AQs"],
+      "SB": ["KK+", "AKs"]
+    }
+  },
+  "100bb": {
+    "open": {
+      "BTN": ["22+", "A2s+", "K5s+", "Q8s+", "J9s+", "T9s", "98s", "87s", "76s", "65s", "A8o+", "KTo+", "QTo+", "JTo", "T9o", "98o"],
+      "SB": ["22+", "A2s+", "K6s+", "Q8s+", "J9s+", "T9s", "98s", "87s", "ATs+", "KTs+", "QTs+", "JTs", "ATo+", "KTo+", "QJo", "JTo"],
+      "BB": ["22+", "A2s+", "K5s+", "Q6s+", "J8s+", "T9s", "98s", "87s", "76s", "A7o+", "K9o+", "Q9o+", "J9o+"],
+      "UTG": ["99+", "ATs+", "KQs", "ATo+", "KQo"],
+      "MP": ["77+", "A9s+", "KTs+", "QJs", "AJo+", "KQo"],
+      "CO": ["55+", "A5s+", "K9s+", "Q9s+", "J9s+", "T9s", "98s", "A8o+", "KJo+", "QJo"]
+    },
+    "facing_open": {
+      "BB_vs_UTG": ["JJ+", "AKs", "AQs", "KQs", "AQo+", "AKo"],
+      "BB_vs_MP": ["TT+", "AJs+", "KQs", "AJo+", "KQo"],
+      "BB_vs_CO": ["99+", "ATs+", "KJs+", "QJs", "AJo+", "KJo+"],
+      "BB_vs_BTN": ["88+", "A9s+", "K9s+", "Q9s+", "J9s+", "A9o+", "KTo+", "QTo+"],
+      "BB_vs_SB": ["77+", "A8s+", "K8s+", "Q8s+", "J8s+", "T8s", "A8o+", "KTo+"]
+    },
+    "facing_3bet": {
+      "BB": ["QQ+", "AKs", "AQs"],
+      "BTN": ["TT+", "AKs", "AQs"],
+      "SB": ["KK+", "AKs"]
+    }
+  },
+  "150bb": {
+    "open": {
+      "BTN": ["22+", "A2s+", "K5s+", "Q8s+", "J9s+", "T9s", "98s", "87s", "76s", "65s", "A8o+", "KTo+", "QTo+", "JTo", "T9o"],
+      "SB": ["22+", "A2s+", "K6s+", "Q8s+", "J9s+", "T9s", "98s", "87s", "ATs+", "KTs+", "QTs+", "JTs", "ATo+", "KTo+", "QJo"],
+      "BB": ["22+", "A2s+", "K5s+", "Q6s+", "J8s+", "T9s", "98s", "87s", "76s", "A7o+", "K9o+", "Q9o+"],
+      "UTG": ["TT+", "ATs+", "KQs", "ATo+", "KQo"],
+      "MP": ["88+", "A9s+", "KTs+", "QJs", "AJo+", "KQo"],
+      "CO": ["66+", "A5s+", "K9s+", "Q9s+", "J9s+", "T9s", "98s", "A8o+", "KJo+", "QJo"]
+    },
+    "facing_open": {
+      "BB_vs_UTG": ["JJ+", "AKs", "AQs", "KQs", "AQo+", "AKo"],
+      "BB_vs_MP": ["TT+", "AJs+", "KQs", "AJo+", "KQo"],
+      "BB_vs_CO": ["99+", "ATs+", "KJs+", "QJs", "AJo+", "KJo+"],
+      "BB_vs_BTN": ["88+", "A9s+", "K9s+", "Q9s+", "J9s+", "A9o+", "KTo+"],
+      "BB_vs_SB": ["77+", "A8s+", "K8s+", "Q8s+", "J8s+", "T8s", "A8o+"]
+    },
+    "facing_3bet": {
+      "BB": ["QQ+", "AKs"],
+      "BTN": ["JJ+", "AKs"],
+      "SB": ["KK+", "AKs"]
+    }
+  }
+}
