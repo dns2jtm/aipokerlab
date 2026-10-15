@@ -147,18 +147,16 @@ export default async function BlogPostPage({
         </div>
 
         {/* Author bio */}
-        <div className="mt-10 rounded-xl border border-zinc-200 bg-white p-6">
+        <div className="mt-10 rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
           <div className="flex gap-4">
             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-emerald-600 text-sm font-bold text-white">
-              {post.author.split(" ").map((w) => w[0]).join("")}
+              DS
             </div>
             <div>
               <h3 className="text-sm font-bold">{post.author}</h3>
               <p className="text-xs font-semibold text-emerald-700">{post.authorRole}</p>
               <p className="mt-2 text-sm leading-6 text-zinc-600">
-                {post.author === "Alex Rivera" && "Alex spent 8 years as a mid-stakes 6-max reg before building Lab. He solved 30k+ spots with PioSolver and TexasSolver to build our pre-computed DB. Every coaching prompt is reviewed against his hand database."}
-                {post.author === "Dr. Priya Chen" && "Priya built the hybrid solver pipeline and grounded coaching engine. Her research on exploitability-bounded solving keeps Lab AI honest — every explanation is tied to solver JSON, never hallucinated."}
-                {post.author === "Marcus Cole" && "Marcus maintains the solver abstraction layer and nightly batch pipeline. He validates every pre-computed spot against PioSolver within 1% frequency delta."}
+                Daniel Sawa (BSc Computer Science, University of York) is the solo founder and lead engineer of AI Poker Lab. He built the native Rust 6-Max & Heads-Up Linear MCCFR solver (15.96M+ infosets, VR-MCCFR, OCHS clustering), the PyTorch ReBeL turn belief-state value network, Burch safety-gadget continual resolving, the Python/NumPy CFR+ subgame solver, and the IR leak-to-drill coaching platform.
               </p>
             </div>
           </div>

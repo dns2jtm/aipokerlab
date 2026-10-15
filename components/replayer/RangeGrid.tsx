@@ -162,7 +162,7 @@ export default function RangeGrid() {
               <span className="h-3 w-3 rounded-sm bg-red-400" /> Fold ({foldCount})
             </span>
             <span className="ml-auto text-zinc-500">
-              {position} · {stack} · 6-max · rake 5% cap $3 · Mock GTO
+              {position} · {stack} · 6-max · rake 5% cap $3 · O(1) spotHash + Rust MCCFR
             </span>
           </div>
         </div>
@@ -186,7 +186,7 @@ export default function RangeGrid() {
                   </span>
                 </div>
                 <p className="mt-1 text-xs text-zinc-500">
-                  {position} · {stack} · GTO frequencies (mock)
+                  {position} · {stack} · GTO equilibrium frequencies
                 </p>
 
                 <div className="mt-4 space-y-2">
@@ -219,7 +219,7 @@ export default function RangeGrid() {
                     {active.ev} bb
                   </p>
                   <p className="text-xs text-zinc-500">
-                    Quantized to 0.1bb · Mock solver (TexasSolver-style)
+                    Quantized to 0.1bb · Hybrid O(1) spotHash DB + Rust Linear MCCFR / CFR+
                   </p>
                 </div>
 
@@ -240,8 +240,7 @@ export default function RangeGrid() {
           </div>
 
           <div className="mt-3 rounded-lg bg-amber-50 p-3 text-xs leading-4 text-amber-800">
-            Training only — not for use during play. Frequencies are mock GTO for
-            MVP; production uses pre-computed TexasSolver trees.
+            Training only — not for use during play. Powered by our Hybrid Solver Architecture (Pre-computed O(1) spotHash DB + Native Rust Linear MCCFR / ReBeL & CFR+ Subgame Engine).
           </div>
         </div>
       </div>

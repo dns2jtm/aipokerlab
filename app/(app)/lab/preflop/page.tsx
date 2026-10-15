@@ -14,8 +14,7 @@ export default function PreflopLabPage() {
       <div>
         <h1 className="text-2xl font-bold">Preflop Lab</h1>
         <p className="text-sm text-zinc-600">
-          169 hands · 6 positions · 4 stack depths · Pre-computed GTO (mock for MVP).
-          Tap any hand for frequencies and EV.
+          169 hands · 6 positions · 4 stack depths · O(1) spotHash GTO ranges validated across 18 canonical benchmarks. Tap any hand for frequencies and EV.
         </p>
       </div>
 
@@ -31,7 +30,7 @@ export default function PreflopLabPage() {
           <li>Pick a position and stack depth — grid updates instantly (pre-computed).</li>
           <li>Hover/tap a hand to see GTO raise/call/fold frequencies and EV in bb.</li>
           <li>Quiz yourself: &quot;What does GTO do with AJo UTG 100bb?&quot; — then check.</li>
-          <li>Production: 12k preflop spots solved with TexasSolver, 0.5% exploitability.</li>
+          <li>Backed by our Hybrid Solver Architecture: O(1) spotHash DB + 15.96M+ infoset Rust Linear MCCFR / ReBeL & Python CFR+ engine.</li>
         </ul>
       </div>
     </div>

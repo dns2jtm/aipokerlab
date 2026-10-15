@@ -104,7 +104,7 @@ export function getPreflopSeoContent(pos: PositionKey, stack: StackKey): Preflop
     {
       q: "What is the GTO open-raise frequency for " + posLabel + " at " + stackLabel + "?",
       a:
-        "GTO open-raise frequency for " + posLabel + " at " + stackLabel + " depends on rake and field, but our TexasSolver-based chart (0.5% exploitability, 5% rake cap $3) shows the solver-preferred raise/call/fold mix for all 169 hands. Hover the grid above for exact frequencies per hand. Generally, " + posLabel + " is " + (pos === "utg" ? "tightest (~15% at 100bb)" : pos === "btn" ? "widest (~48% at 100bb)" : pos === "bb" ? "defensive (call-heavy vs steals)" : "moderate") + " \u2014 see the grid for " + stackLabel + " specifics.",
+        "GTO open-raise frequency for " + posLabel + " at " + stackLabel + " depends on rake and field, and our validated O(1) spotHash + Linear MCCFR chart (5% rake cap $3) shows the equilibrium raise/call/fold mix for all 169 hands. Hover the grid above for exact frequencies per hand. Generally, " + posLabel + " is " + (pos === "utg" ? "tightest (~15% at 100bb)" : pos === "btn" ? "widest (~48% at 100bb)" : pos === "bb" ? "defensive (call-heavy vs steals)" : "moderate") + " \u2014 see the grid for " + stackLabel + " specifics.",
     },
     {
       q: "How should I study this " + posLabel + " " + stackLabel + " chart?",

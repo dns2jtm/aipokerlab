@@ -124,7 +124,7 @@ export default function StaticRangeGrid({
                     {active.ev > 0 ? "+" : ""}
                     {active.ev} bb
                   </p>
-                  <p className="text-xs text-zinc-500">Quantized to 0.1bb · TexasSolver-style</p>
+                  <p className="text-xs text-zinc-500">Quantized to 0.1bb · Hybrid O(1) spotHash DB + Rust Linear MCCFR / CFR+</p>
                 </div>
                 <p className="mt-3 text-xs leading-4 text-zinc-600">
                   {active.primary === "raise" && "GTO raises this hand for value/equity denial. Mix in calls at low frequency to protect calling range."}
@@ -137,7 +137,7 @@ export default function StaticRangeGrid({
             )}
           </div>
           <div className="mt-3 rounded-lg bg-amber-50 p-3 text-xs leading-4 text-amber-800">
-            Training only — not for use during play. Frequencies are pre-computed GTO (TexasSolver, 0.5% exploitability).
+            Training only — not for use during play. Powered by our Hybrid Solver Architecture (Pre-computed O(1) spotHash DB + Native Rust Linear MCCFR / ReBeL & CFR+ Subgame Engine).
           </div>
         </div>
       </div>

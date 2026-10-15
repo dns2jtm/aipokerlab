@@ -14,7 +14,7 @@ export const blogContents: Record<string, string> = {
 <li><strong>Bluffs:</strong> hands with blockers to opponent calling range (missed draws with right suits)</li>
 <li><strong>Give-ups:</strong> hands that check — not strong enough to value bet, not good enough to bluff</li>
 </ul>
-<p>Solvers like PioSolver and TexasSolver compute these frequencies by simulating millions of hands and iteratively adjusting until no player can improve — reaching equilibrium within 0.5% exploitability.</p>
+<p>Modern CFR engines—including AI Poker Lab's native Rust Linear MCCFR + ReBeL subgame resolver and vectorized CFR+ engine—compute these frequencies by iteratively minimizing counterfactual regret across millions of infosets until best-response exploitability converges.</p>
 
 <h2 id="why-gto-matters">Why GTO Matters (Even at Microstakes)</h2>
 <p>You might think GTO only matters at high stakes. Here is why every serious student should learn GTO, even at $0.05/$0.10:</p>
@@ -64,8 +64,8 @@ export const blogContents: Record<string, string> = {
 <p>Absolutely. Start with preflop ranges (our <a href="/lab/preflop">Preflop Lab</a> is free) and one postflop concept at a time like MDF. You do not need solver math to benefit.</p>
 <h3>How long to learn GTO?</h3>
 <p>Preflop (6 positions x 4 stacks) takes ~2 weeks at 15 min/day drilling. Postflop is deeper — months. But every hour has measurable ROI in bb/100.</p>
-<h3>Do I need a solver?</h3>
-<p>No — Lab pre-computed charts (TexasSolver, 0.5% exploitability) give you GTO frequencies without running a solver. On-demand solver handles the long tail.</p>
+<h3>Do I need a desktop solver?</h3>
+<p>No — AI Poker Lab serves O(1) pre-computed GTO ranges in under 50ms and backs postflop review with a native Rust 6-Max/HU Linear MCCFR blueprint (15.96M+ infosets), PyTorch ReBeL belief-state value network, and vectorized CFR+ subgame solver.</p>
 `,
   "ai-poker-bot-vs-gto-solver-difference": `
 <h2 id="what-is-ai-poker-bot">What Is an AI Poker Bot?</h2>
@@ -80,13 +80,13 @@ export const blogContents: Record<string, string> = {
 <p>Even "undetectable" bots get caught — sites use mouse-movement analysis, timing tells, and pattern detection no bot fully evades.</p>
 
 <h2 id="what-is-gto-solver">What Is a GTO Solver?</h2>
-<p>A <strong>GTO solver</strong> (PioSolver, GTO Wizard, TexasSolver) computes Game Theory Optimal strategies for specific spots. You input board, ranges, stacks, sizings — solver outputs GTO frequencies: how often to bet, check, call, or fold with each hand.</p>
+<p>A <strong>GTO solver</strong> computes Game Theory Optimal strategies for specific spots using Counterfactual Regret Minimization (CFR). You input board, ranges, stacks, and sizings — the solver outputs equilibrium action frequencies and counterfactual EVs for every hand combo.</p>
 <ul>
-<li><strong>Solvers are for study, not play.</strong> You use them OFF-table to learn. Using a solver DURING play is also banned (real-time assistance).</li>
-<li><strong>Solvers teach YOU to play better.</strong> They show frequencies and EV; you internalize and bring it to the table yourself.</li>
-<li><strong>Solvers are ToS-compliant when used correctly.</strong> Post-hand study is explicitly allowed by PokerStars and GGPoker.</li>
+<li><strong>Solvers are for study, not live play.</strong> You use them OFF-table to analyze hands and build intuition.</li>
+<li><strong>Solvers teach YOU to play better.</strong> They show frequencies and EV; you internalize the underlying heuristics and bring them to the table yourself.</li>
+<li><strong>Solvers are ToS-compliant when used off-table.</strong> Post-hand review is explicitly permitted by major operators.</li>
 </ul>
-<p>AI Poker Lab uses TexasSolver under the hood — pre-computing 30k+ spots and solving the long tail on demand. But Lab goes beyond a viewer: it <em>coaches</em> you.</p>
+<p>AI Poker Lab combines a fast O(1) pre-computed spotHash database with a native Rust 6-Max/HU Linear MCCFR + ReBeL subgame resolver (15.96M+ infosets, Burch safety-gadget continual resolving) and vectorized Python CFR+ engine. And Lab goes beyond a static chart viewer: it <em>coaches</em> you.</p>
 
 <h2 id="key-differences">Key Differences at a Glance</h2>
 <table>
@@ -359,13 +359,13 @@ export const blogContents: Record<string, string> = {
 
 <h2 id="solver-comparison">Solver Accuracy Compared</h2>
 <table>
-<thead><tr><th>Criteria</th><th>GTO Wizard</th><th>AI Poker Lab</th><th>PioSolver</th></tr></thead>
+<thead><tr><th>Criteria</th><th>GTO Wizard</th><th>AI Poker Lab</th><th>Desktop CFR Solvers</th></tr></thead>
 <tbody>
-<tr><td>Engine</td><td>Proprietary cloud</td><td>TexasSolver (pre-computed + on-demand)</td><td>PioSolver desktop</td></tr>
-<tr><td>Exploitability</td><td>~0.5%</td><td>0.5% (validated vs Pio within 1%)</td><td>0.3–0.5% (configurable)</td></tr>
-<tr><td>Pre-computed spots</td><td>~50k</td><td>~30k (90% hit rate)</td><td>0 (solve everything)</td></tr>
-<tr><td>Custom solves</td><td>Limited</td><td>On-demand (10% long tail)</td><td>Full control</td></tr>
-<tr><td>Speed (cached)</td><td><100ms</td><td><50ms p95</td><td>5–60s per solve</td></tr>
+<tr><td>Engine</td><td>Proprietary cloud</td><td>Hybrid O(1) spotHash DB + Rust Linear MCCFR / ReBeL + Python CFR+</td><td>Local C++ desktop solver</td></tr>
+<tr><td>Safe subgame resolving</td><td>Cloud lookup</td><td>Burch safety-gadget continual resolving (-86.5% max combo exploit)</td><td>Manual tree building</td></tr>
+<tr><td>Blueprint scale</td><td>Cloud library</td><td>15.96M+ infosets (OCHS L1/EMD + VR-MCCFR + PyTorch VN01 value net)</td><td>0 (solve everything from scratch)</td></tr>
+<tr><td>Custom subgames</td><td>Tier-limited</td><td>On-demand CFR+ & depth-limited ReBeL subgame solving</td><td>Full manual control</td></tr>
+<tr><td>Speed (cached)</td><td><100ms</td><td><50ms O(1) spotHash lookup</td><td>5–60s per solve</td></tr>
 <tr><td>Rake handling</td><td>Yes</td><td>Yes (5% cap $3 default)</td><td>Manual</td></tr>
 </tbody>
 </table>

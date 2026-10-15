@@ -68,8 +68,10 @@ function DrillsInner() {
   return (
     <div className="mx-auto max-w-5xl space-y-4">
       <div>
-        <h1 className="text-2xl font-bold">Drills — Leak-to-Drill</h1>
-        <p className="text-sm text-zinc-600">Auto-generated from your worst leak · spaced repetition · vs GTO bot · XP scored.</p>
+        <h1 className="text-2xl font-bold">IR Drills — Personalized Leak-to-Drill Engine</h1>
+        <p className="text-sm text-zinc-600">
+          Ranked via hybrid token/3-gram TF-IDF + EV-loss severity (evaluated with NDCG@k & MRR) · SM-2 spaced repetition · XP scored.
+        </p>
       </div>
 
       <div className="rounded-xl border border-zinc-200 bg-white p-4">

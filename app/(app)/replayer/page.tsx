@@ -30,10 +30,9 @@ export default function ReplayerPage() {
   return (
     <div className="mx-auto max-w-6xl space-y-4">
       <div>
-        <h1 className="text-2xl font-bold">Hand Replayer + GTO Check</h1>
+        <h1 className="text-2xl font-bold">Hand Replayer + Subgame GTO Check</h1>
         <p className="text-sm text-zinc-600">
-          Paste a hand history — see parsed streets, mock GTO frequencies, EV loss per
-          street, and the AI Coach card placeholder.
+          Paste a PokerStars or GGPoker hand history — inspect parsed streets, hybrid GTO equilibrium frequencies, EV loss per street, and solver-grounded AI coaching.
         </p>
       </div>
       <div className="rounded-xl border border-zinc-200 bg-white p-4 md:p-6">

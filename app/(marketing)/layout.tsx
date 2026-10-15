@@ -33,10 +33,18 @@ export default function MarketingLayout({ children }: { children: React.ReactNod
               Dashboard
             </Link>
           </nav>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5">
+            <a
+              href="https://github.com/dns2jtm/aipokerlab"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden rounded-full border border-zinc-200 bg-zinc-50 px-3.5 py-1.5 text-xs font-semibold text-zinc-700 transition hover:border-zinc-300 hover:bg-zinc-100 sm:inline-flex"
+            >
+              GitHub ↗
+            </a>
             <Link
               href="/dashboard"
-              className="rounded-full bg-zinc-900 px-5 py-2 text-sm font-semibold text-white hover:bg-zinc-800"
+              className="rounded-full bg-zinc-900 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-600"
             >
               Open Lab
             </Link>
@@ -67,32 +75,25 @@ export default function MarketingLayout({ children }: { children: React.ReactNod
                 <span className="text-sm font-bold">AI Poker Lab</span>
               </div>
               <p className="mt-3 text-xs leading-5 text-zinc-600">
-                ToS-compliant GTO training. Not a cheating bot. For post-hand study only.
+                Architected by <strong>Daniel Sawa</strong>. Native Rust 6-Max/HU Linear MCCFR + ReBeL subgame solver,
+                PyTorch belief-state value networks & ToS-compliant GTO coaching.
               </p>
-              <div className="mt-3 flex gap-2">
+              <div className="mt-3 flex flex-wrap gap-2">
                 <a
-                  href="https://twitter.com/aipokerlab"
+                  href="https://github.com/dns2jtm/aipokerlab"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full border border-zinc-200 px-2.5 py-1 text-xs font-medium hover:bg-zinc-50"
+                  className="rounded-full border border-zinc-200 px-2.5 py-1 text-xs font-semibold text-zinc-700 hover:bg-zinc-50"
                 >
-                  X
+                  GitHub Repo
                 </a>
                 <a
-                  href="https://github.com/aipokerlab"
+                  href="https://github.com/dns2jtm"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full border border-zinc-200 px-2.5 py-1 text-xs font-medium hover:bg-zinc-50"
+                  className="rounded-full border border-zinc-200 px-2.5 py-1 text-xs font-medium text-zinc-600 hover:bg-zinc-50"
                 >
-                  GitHub
-                </a>
-                <a
-                  href="https://www.youtube.com/@aipokerlab"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-full border border-zinc-200 px-2.5 py-1 text-xs font-medium hover:bg-zinc-50"
-                >
-                  YouTube
+                  @dns2jtm
                 </a>
               </div>
             </div>
@@ -179,8 +180,8 @@ export default function MarketingLayout({ children }: { children: React.ReactNod
           </div>
           <div className="mt-8 border-t border-zinc-200 pt-6 text-center text-xs text-zinc-500">
             <p>
-              © {new Date().getFullYear()} AI Poker Lab — ToS-compliant GTO training. Not a cheating bot. For study
-              only.
+              © {new Date().getFullYear()} AI Poker Lab · Built by Daniel Sawa — ToS-compliant GTO training &
+              imperfect-information game theory research.
             </p>
             <p className="mt-2 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-amber-800">
               <strong>ToS Banner:</strong> Training tool only — not for use during play. Compliant with PokerStars /

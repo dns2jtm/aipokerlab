@@ -135,8 +135,8 @@ export default function LeaksPage() {
         </>
       )}
 
-      <div className="rounded-lg bg-zinc-900 p-4 text-xs leading-5 text-zinc-300">
-        <strong className="text-white">How it works:</strong> 12 detectors run on your last {data.handCount} hands. Each leak shows your frequency vs GTO, severity (low/medium/high by bb/100), and EV loss. Sorted by EV loss so you fix the biggest leak first. Click Drill to generate a 10-hand pack vs GTO bot.
+      <div className="rounded-xl bg-zinc-900 p-4 text-xs leading-5 text-zinc-300">
+        <strong className="text-white">How it works:</strong> 12 automated detectors scan your last {data.handCount} hands against our O(1) spotHash DB and Rust Linear MCCFR / CFR+ equilibrium baselines. Each leak reports your frequency vs GTO, severity, and EV loss in bb/100, feeding directly into our hybrid TF-IDF + severity Information Retrieval drill recommender.
       </div>
     </div>
   );

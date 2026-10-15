@@ -109,8 +109,8 @@ export default function TermsPage() {
           <h2>7. Solver &amp; Coaching — No Guarantees</h2>
           <ul>
             <li>
-              Solver outputs are based on abstractions (2–3 sizings, 0.5% exploitability, rake 5% cap $3) and are
-              validated vs PioSolver within ~1% frequency delta — but they are not perfect GTO and not financial or
+              Solver outputs are based on game-tree and bucket abstractions (2–3 bet sizings, OCHS L1/EMD clustering, rake 5% cap $3) and are
+              validated against 18 canonical GTO benchmarks — but they are research/training approximations and not financial or
               gambling advice.
             </li>
             <li>

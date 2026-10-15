@@ -13,62 +13,52 @@ export interface Author {
 
 export const AUTHORS: Author[] = [
   {
-    name: "Alex Rivera",
-    role: "Co-founder & Head Coach",
-    credentials: "500k+ hands · 5.2 bb/100 · GTO Wizard Certified · 2x WSOP Circuit Final Table",
-    bio: "Alex spent 8 years as a mid-stakes 6-max reg before building Lab. He solved 30k+ spots with PioSolver and TexasSolver to build our pre-computed DB. Every coaching prompt is reviewed against his hand database.",
-    initials: "AR",
+    name: "Daniel Sawa",
+    role: "Founder & Lead Systems / ML Engineer",
+    credentials:
+      "BSc (Hons) Computer Science · University of York · Systems, Quantitative Modeling & Imperfect-Information Game Theory",
+    bio: "Daniel architected AI Poker Lab from first principles—building the multi-threaded Rust 6-Max & Heads-Up Linear MCCFR solver (15.96M+ infosets, VR-MCCFR control variates, OCHS L1/EMD clustering), the PyTorch ReBeL belief-state value network (VN01), Burch safety-gadget continual resolving, the vectorized Python/NumPy CFR+ restricted subgame solver, and the Next.js 15 / TypeScript / Redis training & IR drill recommendation platform.",
+    initials: "DS",
     accent: "bg-emerald-600",
-    imageAlt: "Alex Rivera — poker coach and co-founder",
+    imageAlt: "Daniel Sawa — Founder & Lead Systems / ML Engineer",
     links: [
-      { label: "Hendrix", href: "#" },
-      { label: "TwoPlusTwo", href: "#" },
+      { label: "GitHub (@dns2jtm)", href: "https://github.com/dns2jtm" },
+      { label: "Repository", href: "https://github.com/dns2jtm/aipokerlab" },
+      { label: "Solver Architecture & Benchmarks", href: "/methodology" },
     ],
-  },
-  {
-    name: "Dr. Priya Chen",
-    role: "Co-founder & AI Research Lead",
-    credentials: "PhD Machine Learning, Stanford · Ex-DeepMind · 3 papers on game-theoretic RL",
-    bio: "Priya built the hybrid solver pipeline and the grounded coaching engine. Her research on exploitability-bounded solving keeps Lab's AI honest — every explanation is tied to solver JSON, never hallucinated.",
-    initials: "PC",
-    accent: "bg-violet-600",
-    imageAlt: "Dr. Priya Chen — AI research lead and co-founder",
-    links: [
-      { label: "Google Scholar", href: "#" },
-      { label: "arXiv", href: "#" },
-    ],
-  },
-  {
-    name: "Marcus Cole",
-    role: "Lead Solver Engineer",
-    credentials: "Ex-PioSolver contributor · 10 years C++ solver dev · TexasSolver integration",
-    bio: "Marcus maintains the solver abstraction layer and nightly batch pipeline. He validates every pre-computed spot against PioSolver within 1% frequency delta.",
-    initials: "MC",
-    accent: "bg-zinc-800",
-    imageAlt: "Marcus Cole — solver engineer",
   },
 ];
 
 export function AuthorBio({ author }: { author: Author }) {
   return (
-    <div className="flex gap-4 rounded-xl border border-zinc-200 bg-white p-5">
+    <div className="flex flex-col gap-4 rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm sm:flex-row">
       <div
-        className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white ${author.accent}`}
+        className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl text-base font-extrabold text-white shadow-sm ${author.accent}`}
         aria-label={author.imageAlt}
         role="img"
       >
         {author.initials}
       </div>
       <div className="min-w-0">
-        <h3 className="text-sm font-bold">{author.name}</h3>
-        <p className="text-xs font-semibold text-emerald-700">{author.role}</p>
-        <p className="mt-1 text-xs leading-4 text-zinc-500">{author.credentials}</p>
-        <p className="mt-2 text-sm leading-6 text-zinc-600">{author.bio}</p>
+        <div className="flex flex-wrap items-center gap-2">
+          <h3 className="text-base font-bold text-zinc-900">{author.name}</h3>
+          <span className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold text-emerald-700">
+            {author.role}
+          </span>
+        </div>
+        <p className="mt-1 text-xs font-medium leading-5 text-zinc-500">{author.credentials}</p>
+        <p className="mt-2.5 text-sm leading-6 text-zinc-600">{author.bio}</p>
         {author.links && (
-          <div className="mt-2 flex gap-3 text-xs">
+          <div className="mt-3 flex flex-wrap gap-3 text-xs">
             {author.links.map((l) => (
-              <Link key={l.label} href={l.href} className="font-medium text-zinc-500 underline hover:text-zinc-700">
-                {l.label}
+              <Link
+                key={l.label}
+                href={l.href}
+                target={l.href.startsWith("http") ? "_blank" : undefined}
+                rel={l.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                className="inline-flex items-center gap-1 rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 font-semibold text-zinc-700 transition hover:border-emerald-300 hover:bg-emerald-50 hover:text-emerald-800"
+              >
+                {l.label} →
               </Link>
             ))}
           </div>

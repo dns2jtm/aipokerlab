@@ -30,7 +30,7 @@ export function welcomeEmailHtml(opts: { email: string; confirmUrl?: string }): 
       <p style="margin:12px 0 0;font-size:14px;line-height:1.7;color:#3f3f46;">You're in. Here's your free gift to get started:</p>
       <div style="margin:16px 0;padding:16px;border:1px solid #a7f3d0;background:#ecfdf5;border-radius:12px;">
         <p style="margin:0;font-weight:700;font-size:14px;color:#065f46;">Free Preflop Charts — 6 positions × 4 stacks</p>
-        <p style="margin:6px 0 0;font-size:13px;line-height:1.6;color:#065f46;">Interactive 13×13 range grids with GTO raise/call/fold frequencies and EV. Pre-computed with TexasSolver.</p>
+        <p style="margin:6px 0 0;font-size:13px;line-height:1.6;color:#065f46;">Interactive 13×13 range grids with GTO raise/call/fold frequencies and EV, backed by our O(1) spotHash DB and Rust Linear MCCFR solver.</p>
         <a href="${SITE_URL}/lab/preflop" style="display:inline-block;margin-top:12px;background:#059669;color:#fff;text-decoration:none;font-weight:700;font-size:13px;padding:10px 18px;border-radius:999px;">Open Preflop Lab →</a>
       </div>
       ${opts.confirmUrl ? `<p style="margin:16px 0 0;font-size:13px;line-height:1.6;color:#3f3f46;">Please confirm your email to activate your subscription:</p><a href="${ctaUrl}" style="display:inline-block;margin-top:8px;background:#18181b;color:#fff;text-decoration:none;font-weight:700;font-size:13px;padding:10px 18px;border-radius:999px;">Confirm Email →</a><p style="margin:8px 0 0;font-size:12px;color:#71717a;">Or paste: ${ctaUrl}</p>` : ``}

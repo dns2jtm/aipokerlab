@@ -38,9 +38,9 @@ export default function BlogListingPage() {
 
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <h1 className="text-3xl font-extrabold tracking-tight md:text-4xl">Poker Strategy Blog</h1>
+            <h1 className="text-3xl font-extrabold tracking-tight md:text-4xl">Poker Strategy & Solver Engineering Blog</h1>
             <p className="mt-2 max-w-2xl text-sm leading-6 text-zinc-600">
-              GTO fundamentals, preflop mastery, leak fixes, and honest tool comparisons — written by poker pros and AI researchers. Every article is solver-backed and linked to interactive Lab tools.
+              GTO fundamentals, preflop mastery, leak fixes, and solver architecture breakdowns — written by <strong>Daniel Sawa</strong> (Founder & Lead Engineer). Every article is grounded in real Linear MCCFR, ReBeL, and CFR+ solver output.
             </p>
           </div>
           <Link href="/lab/preflop" className="inline-flex shrink-0 rounded-full bg-emerald-600 px-5 py-2.5 text-sm font-bold text-white hover:bg-emerald-700">

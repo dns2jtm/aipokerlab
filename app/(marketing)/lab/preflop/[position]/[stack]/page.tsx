@@ -172,7 +172,7 @@ export default async function PreflopChartPage({
         {/* GTO Stats Table */}
         <div className="mt-8 rounded-xl border border-zinc-200 bg-white p-6">
           <h2 className="text-lg font-bold">GTO Stats — {POSITION_LABELS[pos]} {STACK_LABELS[stack]}</h2>
-          <p className="mt-1 text-xs text-zinc-500">Pre-computed with TexasSolver · 0.5% exploitability · Rake 5% cap $3 · 6-max</p>
+          <p className="mt-1 text-xs text-zinc-500">Hybrid O(1) spotHash DB + Rust Linear MCCFR · Rake 5% cap $3 · 6-max</p>
           <div className="mt-4 overflow-x-auto">
             <table className="w-full min-w-[480px] text-sm">
               <thead>

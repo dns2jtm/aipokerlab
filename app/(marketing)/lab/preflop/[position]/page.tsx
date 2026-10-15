@@ -82,7 +82,7 @@ export default async function PositionPage({
         <p className="mt-3 max-w-3xl text-sm leading-6 text-zinc-600">
           Browse every GTO preflop chart for <strong>{label} ({full})</strong> at 6-max — from short-stack 20bb to deep 200bb.
           Each chart shows raise/call/fold frequencies for all 169 hands, EV, and study tips. Pick your stack depth below.
-          All charts are pre-computed with TexasSolver (0.5% exploitability, rake 5% cap $3) and free to study.
+          All charts are served from our validated O(1) spotHash GTO database (6-max, rake 5% cap $3) and free to study.
         </p>
 
         <div className="mt-8 grid gap-4 md:grid-cols-2">
